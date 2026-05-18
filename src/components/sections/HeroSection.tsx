@@ -70,7 +70,7 @@ export function HeroSection() {
                        px-4 py-1.5 rounded-sm mb-7"
           >
             <span className="w-1.5 h-1.5 bg-orange rounded-full" />
-            Excellence in Engineering
+            Excellence in Teknisi
           </motion.div>
 
           {/* Headline */}

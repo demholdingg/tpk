@@ -1,0 +1,29 @@
+name: Deploy ke Synology NAS
+
+on:
+  push:
+    branches: [master]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Langkah tambahan untuk mendiagnosis jika ada masalah folder di kemudian hari
+      - name: Cek Isi Folder Proyek
+        run: |
+          echo "Lokasi direktori saat ini:"
+          pwd
+          echo "Daftar file yang ada di folder ini:"
+          ls -la
+
+      - name: Restart NextJS Container
+        run: |
+          # Menggunakan '.' (direktori saat ini) karena GitHub otomatis berada di folder hasil checkout
+          docker compose down || true
+          docker compose up -d --build
