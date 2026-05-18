@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange:      #F5A623;
+  --orange-dark: #D4891A;
+  --dark:        #0D0F12;
+  --dark2:       #13161A;
+  --dark3:       #1A1E24;
+  --dark4:       #222730;
+  --mid:         #2E343D;
+  --border:      rgba(255,255,255,0.07);
+  --text:        #E8EAF0;
+  --muted:       #8A909C;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--dark);
+    color: var(--text);
+    font-family: var(--font-barlow), sans-serif;
+    overflow-x: hidden;
+  }
+
+  * { box-sizing: border-box; }
+}
+
+@layer utilities {
+  .font-display  { font-family: var(--font-barlow-condensed), sans-serif; }
+  .text-orange   { color: var(--orange); }
+  .bg-dark       { background-color: var(--dark); }
+  .bg-dark2      { background-color: var(--dark2); }
+  .bg-dark3      { background-color: var(--dark3); }
+  .bg-dark4      { background-color: var(--dark4); }
+  .border-subtle { border-color: var(--border); }
+  .text-muted    { color: var(--muted); }
+}
+
+/* Smooth image transitions */
+img { transition: filter 0.3s ease, transform 0.4s ease; }

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+
+# Build output
+.next
+out
+build
+
+# Synology system folders
+**/@eaDir
+**/@tmp
+
+# Debug & Logs
+npm-debug.log*
+.git
+.gitignore
