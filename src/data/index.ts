@@ -914,20 +914,6 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
       { label: "Engine Power", value: "74 kW" },
     ],
   },
-  {
-    id: "compactor-bomag-bw211",
-    name: "Bomag BW 211 D-40",
-    category: "Single Drum Roller",
-    image: "/images/heavyduty/bomac.jpg",
-    description:
-      "High-performance soil compactor for medium to large-scale infrastructure projects.",
-    specs: [
-      { label: "Operating Weight", value: "10,000 kg" },
-      { label: "Working Width", value: "2,130 mm" },
-      { label: "Static Linear Load", value: "28.2 kg/cm" },
-      { label: "Engine Power", value: "74 kW" },
-    ],
-  },
 ];
 
 export interface ProductItem {

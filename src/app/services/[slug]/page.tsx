@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { SERVICE_DETAILS } from "@/data";
@@ -24,9 +25,10 @@ const typingLetter = {
 export default function ServiceDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const service = SERVICE_DETAILS.find((s) => s.slug === params.slug);
+  const resolvedParams = use(params);
+  const service = SERVICE_DETAILS.find((s) => s.slug === resolvedParams.slug);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
@@ -107,7 +109,7 @@ export default function ServiceDetailPage({
             </div>
 
             {/* Special Section for Heavy Equipment */}
-            {params.slug === "heavy-equipment" && (
+            {resolvedParams.slug === "heavy-equipment" && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
