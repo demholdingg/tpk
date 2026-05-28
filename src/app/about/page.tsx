@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Award, Globe, Zap } from "lucide-react";
 import { MILESTONES } from "@/data";
-import { CtaSection } from "@/components/sections/CtaSection";
 import { MapSection } from "@/components/sections/MapSection";
 
 export default function AboutPage() {
@@ -258,8 +257,6 @@ export default function AboutPage() {
       </section>
 
       <MapSection />
-
-      <CtaSection />
     </div>
   );
 }

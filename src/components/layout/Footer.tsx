@@ -27,8 +27,9 @@ export function Footer() {
             Teknika <span className="text-orange">Pesona</span> Kahayan
           </div>
           <p className="text-sm text-gray-600 leading-relaxed mb-6 max-w-[280px]">
-            A leading integrated engineering solutions provider, specializing in
-            large-scale infrastructure across Indonesia.
+            Penyedia solusi alat berat dan material handling terintegrasi,
+            melayani persewaan dan pemeliharaan armada untuk berbagai sektor
+            industri di Indonesia.
           </p>
           <div className="flex gap-3">
             {[
@@ -67,7 +68,7 @@ export function Footer() {
           </div>
           <ul className="flex flex-col gap-2.5">
             {FOOTER_SERVICES.map((item) => (
-              <li key={item.href}>
+              <li key={item.id}>
                 <Link
                   href={item.href}
                   className="text-sm text-gray-600 hover:text-orange transition-colors"
@@ -86,7 +87,7 @@ export function Footer() {
           </div>
           <ul className="flex flex-col gap-2.5">
             {FOOTER_COMPANY.map((item) => (
-              <li key={item.href}>
+              <li key={item.id}>
                 <Link
                   href={item.href}
                   className="text-sm text-gray-600 hover:text-orange transition-colors"
@@ -127,8 +128,8 @@ export function Footer() {
                       text-xs text-[#8A909C]"
       >
         <span>
-          © {new Date().getFullYear()} Teknika Pesona Kahayan. Engineering
-          Excellence.
+          © {new Date().getFullYear()} Teknika Pesona Kahayan. Heavy Equipment
+          Specialist.
         </span>
         <div className="flex gap-6">
           <Link

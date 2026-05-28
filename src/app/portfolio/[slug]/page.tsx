@@ -15,6 +15,20 @@ import {
 } from "lucide-react";
 import { ALL_PROJECTS } from "@/data";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = ALL_PROJECTS.find((p) => p.id === slug);
+  return {
+    title: `${project?.name || "Project"} | Teknika Pesona Kahayan`,
+    description: project?.description,
+  };
+}
 
 // Varian animasi pengetikan yang konsisten dengan halaman produk
 const typingContainer = {

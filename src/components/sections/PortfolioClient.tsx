@@ -7,7 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import type { ProjectFull } from "@/data";
 
-const ALL_CATEGORIES = ["All", "Telecom", "Mechanical", "Network", "Equipment"];
+const ALL_CATEGORIES = [
+  "All",
+  "Equipment",
+  "Operations",
+  "Maintenance",
+  "Rental",
+];
 
 export function PortfolioClient({ projects }: { projects: ProjectFull[] }) {
   const [active, setActive] = useState("All");

@@ -1,4 +1,4 @@
-import type { Service, Project, Stat, NavLink } from "@/types";
+import type { Service, Project, NavLink } from "@/types";
 
 export interface FleetItem {
   id: string;
@@ -7,6 +7,24 @@ export interface FleetItem {
   image: string;
   description: string;
   specs: { label: string; value: string }[];
+  brandId?: string;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  logo: string;
+  category: string;
+}
+
+export interface Sector {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  icon: string;
+  href: string;
+  relatedCategories: string[];
 }
 
 export const NAV_LINKS: (NavLink & { children?: NavLink[] })[] = [
@@ -16,46 +34,13 @@ export const NAV_LINKS: (NavLink & { children?: NavLink[] })[] = [
     href: "/about",
     children: [
       { label: "Company Profile", href: "/about" },
-      { label: "Facilities", href: "/about/facilities" },
+      { label: "Workshop & Facilities", href: "/about/facilities" },
       { label: "HSE / K3L", href: "/about/hse" },
       { label: "Partners & Clients", href: "/about/partners" },
-      { label: "Testimonials", href: "/about/testimonials" },
     ],
   },
-
-  { label: "Business Units", href: "/services" },
-  {
-    label: "Our Products",
-    href: "/products",
-    children: [
-      {
-        label: "Ground Mounted Solar Power",
-        href: "/products/ground-mounted",
-      },
-      {
-        label: "Industrial Rooftop Solar Power",
-        href: "/products/industrial-rooftop",
-      },
-      {
-        label: "Residential Rooftop Solar Power",
-        href: "/products/residential-rooftop",
-      },
-      {
-        label: "Solar Street Lighting",
-        href: "/products/solar-street-lighting",
-      },
-      {
-        label: "Solar Power for Telecommunication",
-        href: "/products/solar-telecom",
-      },
-      { label: "Mini Hydro Power Plant", href: "/products/mini-hydro" },
-      {
-        label: "Solar Floating Power Plant",
-        href: "/products/floating-solar",
-      },
-    ],
-  },
-  { label: "Experience", href: "/portfolio" },
+  { label: "Fleet & Equipment", href: "/services" },
+  { label: "Project Experience", href: "/portfolio" },
   {
     label: "Media",
     href: "/media",
@@ -70,93 +55,69 @@ export const NAV_LINKS: (NavLink & { children?: NavLink[] })[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const HERO_STATS: Stat[] = [
-  { value: "67.93 MWp", label: "Total Capacity" },
-  { value: "17+", label: "Years Experience" },
-  { value: "21,803", label: "Poles Installed" },
-  { value: "40+", label: "Regions Covered" },
+export interface HeroSlide {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  video?: string;
+  tag: string;
+}
+
+export const HOME_HERO_SLIDES: HeroSlide[] = [
+  {
+    id: 1,
+    tag: "Premium Fleet",
+    title: "Material Handling",
+    subtitle: "Plum Mewah PM-5000",
+    description:
+      "Solusi terpercaya untuk kebutuhan forklift dan pergudangan dengan unit modern dan operator bersertifikat.",
+    image: "/images/plummewah/pm-5000.png",
+  },
+  {
+    id: 2,
+    tag: "Heavy Operations",
+    title: "Heavy Lifting",
+    subtitle: "Solutions",
+    description:
+      "Dukungan armada crane kapasitas besar untuk proyek infrastruktur, pertambangan, dan operasional pelabuhan.",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+    video: "/video/crane.mp4",
+  },
+  {
+    id: 3,
+    tag: "Technical Support",
+    title: "Industrial",
+    subtitle: "Maintenance",
+    description:
+      "Dukungan teknis 24/7 dan ketersediaan suku cadang asli untuk memastikan kesiapan armada alat berat Anda setiap saat.",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+  },
 ];
 
 export const SERVICES: Service[] = [
   {
-    id: "mechanical-electrical",
-    tag: "M&E Engineering",
-    name: "Mechanical & Electrical Engineering",
-    description:
-      "Installation of power systems, HVAC, and industrial-scale plumbing with high efficiency and strict safety standards.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",
-    href: "/services/mechanical-electrical",
-  },
-  {
-    id: "industrial-engineering",
-    tag: "Industrial",
-    name: "Industrial Engineering",
-    description:
-      "Optimizing complex processes and systems through advanced structural design and industrial workflow management.",
-    image:
-      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=600&q=75",
-    href: "/services/industrial-engineering",
-  },
-  {
-    id: "network-infrastructure",
-    tag: "Telecommunication",
-    name: "Network Telecommunication Infrastructure",
-    description:
-      "Construction of telecommunication towers and integration of high-speed data network systems across Indonesia.",
-    image:
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=75",
-    href: "/services/network-infrastructure",
-  },
-  {
-    id: "fiber-optic",
-    tag: "Connectivity",
-    name: "Telekomunikasi Fiber Optic",
-    description:
-      "End-to-end fiber optic solutions including backbone deployment, horizontal drilling (HDD), and last-mile integration.",
-    image:
-      "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=600&q=75",
-    href: "/services/fiber-optic",
-  },
-  {
     id: "heavy-equipment",
     tag: "Supply & Rent",
-    name: "Heavy Duty Equipment & Rent",
+    name: "Heavy Duty Equipment Rental",
     description:
-      "Supply and rental of material handling machinery and construction equipment with 24/7 maintenance support.",
+      "Premium rental services for material handling machinery and construction equipment with certified operators.",
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75",
     href: "/services/heavy-equipment",
   },
   {
-    id: "power-automation",
-    tag: "Power Systems",
-    name: "Power Quality & Automation",
-    description:
-      "Advanced power quality analysis and industrial automation systems to enhance energy efficiency and operational control.",
-    image:
-      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=600&q=75",
-    href: "/services/power-automation",
-  },
-  {
     id: "maintenance-services",
     tag: "Lifecycle",
-    name: "Project & Maintenance Services",
+    name: "Equipment Maintenance & Repair",
     description:
-      "Comprehensive lifecycle support including preventive maintenance, corrective repairs, and technical project management.",
+      "Specialized maintenance for heavy machinery to ensure maximum uptime and operational safety.",
     image:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=75",
     href: "/services/maintenance-services",
-  },
-  {
-    id: "procurement-workshop",
-    tag: "Procurement",
-    name: "Workshop & Procurement",
-    description:
-      "Global sourcing of industrial components and in-house fabrication workshop for customized engineering parts.",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=75",
-    href: "/services/procurement-workshop",
   },
 ];
 
@@ -175,218 +136,6 @@ export interface ServiceDetail {
 
 export const SERVICE_DETAILS: ServiceDetail[] = [
   {
-    slug: "mechanical-electrical",
-    tag: "M&E Engineering",
-    name: "Mechanical & Electrical Engineering",
-    tagline: "Supply, System & Services",
-    description:
-      "We provide end-to-end mechanical and electrical engineering solutions for industrial facilities, commercial buildings, and national infrastructure. From initial design through commissioning and long-term maintenance, our certified engineers deliver systems that meet international standards.",
-    heroImage:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80",
-    features: [
-      {
-        icon: "⚡",
-        title: "Power Systems",
-        description:
-          "High and medium voltage distribution, transformer installation, and switchgear integration for industrial facilities.",
-      },
-      {
-        icon: "🌡️",
-        title: "HVAC Systems",
-        description:
-          "Design and installation of industrial HVAC systems optimized for energy efficiency and climate control.",
-      },
-      {
-        icon: "🔧",
-        title: "Plumbing & Piping",
-        description:
-          "Industrial-grade piping systems for water, gas, and process fluids with pressure testing and certification.",
-      },
-      {
-        icon: "🛡️",
-        title: "Safety Systems",
-        description:
-          "Fire detection, suppression systems, and emergency lighting compliant with NFPA and local standards.",
-      },
-    ],
-    specs: [
-      { label: "Voltage Range", value: "Up to 150 kV" },
-      { label: "Standards", value: "SNI, IEC, NEMA, NFPA" },
-      { label: "Team Size", value: "50+ Certified Engineers" },
-      { label: "Project Duration", value: "1 month – 3 years" },
-      { label: "Coverage", value: "Nationwide" },
-      { label: "Certifications", value: "ISO 9001:2015" },
-    ],
-    subServices: [
-      {
-        name: "Generator Set (Genset)",
-        description:
-          "Supply, installation, commissioning, and maintenance of diesel and gas generator sets from 10 kVA to 2,500 kVA.",
-        image:
-          "https://images.unsplash.com/photo-1622127306211-0aa8319690a7?w=500&q=75",
-      },
-      {
-        name: "Panel & Switchgear",
-        description:
-          "Low and medium voltage panel manufacturing, installation, and testing for industrial and commercial applications.",
-        image:
-          "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=500&q=75",
-      },
-      {
-        name: "Building Automation",
-        description:
-          "Integrated BMS solutions for energy management, monitoring, and control of mechanical and electrical systems.",
-        image:
-          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["industrial-engineering", "power-automation"],
-  },
-  {
-    slug: "industrial-engineering",
-    tag: "Industrial",
-    name: "Industrial Engineering",
-    tagline: "Process Optimization & Structural Design",
-    description:
-      "Our industrial engineering division focuses on the optimization of complex processes, systems, and organizations. We develop, improve, and implement integrated systems of people, money, knowledge, information, equipment, energy, and materials.",
-    heroImage:
-      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=1400&q=80",
-    features: [
-      {
-        icon: "🏗️",
-        title: "Structural Design",
-        description:
-          "Advanced structural analysis and design for industrial plants and warehouses.",
-      },
-      {
-        icon: "📈",
-        title: "Process Improvement",
-        description:
-          "Streamlining industrial workflows to increase throughput and reduce operational waste.",
-      },
-    ],
-    specs: [
-      { label: "Software", value: "AutoCAD, SAP2000, Tekla" },
-      { label: "Methodology", value: "Lean Six Sigma" },
-      { label: "Compliance", value: "SNI, AISC, Eurocode" },
-    ],
-    subServices: [
-      {
-        name: "Warehouse Automation",
-        description: "Integrating conveyors and automated storage systems.",
-        image:
-          "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["mechanical-electrical", "procurement-workshop"],
-  },
-  {
-    slug: "network-infrastructure",
-    tag: "Telecommunication",
-    name: "Network Telecommunication Infrastructure",
-    tagline: "Telecommunication Systems",
-    description:
-      "We design, build, and maintain telecommunication infrastructure that connects communities across Indonesia. From greenfield tower construction to fiber optic backbone deployment and active equipment integration, we deliver reliable, high-capacity networks built to last.",
-    heroImage:
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80",
-    features: [
-      {
-        icon: "📡",
-        title: "Tower Construction",
-        description:
-          "Greenfield and rooftop tower construction — monopole, lattice, and guyed mast — with full civil and structural works.",
-      },
-      {
-        icon: "🌐",
-        title: "Fiber Optic Network",
-        description:
-          "End-to-end fiber optic deployment: trenching, cable laying, splicing, and OTDR testing for backbone and last-mile connectivity.",
-      },
-      {
-        icon: "📶",
-        title: "Active Equipment",
-        description:
-          "Integration of BTS, microwave, and transmission equipment from leading OEMs including Huawei, Ericsson, and Nokia.",
-      },
-      {
-        icon: "🔒",
-        title: "Network Security",
-        description:
-          "Implementation of secure network architectures with firewall, IDS/IPS, and end-to-end encryption solutions.",
-      },
-    ],
-    specs: [
-      { label: "Tower Height", value: "Up to 100 m" },
-      { label: "Fiber Standards", value: "ITU-T G.652, G.657" },
-      { label: "Frequency Bands", value: "700 MHz – 26 GHz" },
-      { label: "Projects Delivered", value: "30+ Tower Sites" },
-      { label: "Coverage", value: "Kalimantan, Sulawesi & Java" },
-      { label: "Certifications", value: "KOMINFO Licensed" },
-    ],
-    subServices: [
-      {
-        name: "Fiber Optic (FTTH/FTTB)",
-        description:
-          "Last-mile fiber optic deployment for residential and business parks with passive optical network (PON) architecture.",
-        image:
-          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=75",
-      },
-      {
-        name: "Microwave Backhaul",
-        description:
-          "Point-to-point and point-to-multipoint microwave link design, installation, and commissioning for network backhaul.",
-        image:
-          "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=75",
-      },
-      {
-        name: "Data Center Cabling",
-        description:
-          "Structured cabling solutions for data centers including copper, fiber, and cable management systems.",
-        image:
-          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["fiber-optic", "maintenance-services"],
-  },
-  {
-    slug: "fiber-optic",
-    tag: "Connectivity",
-    name: "Telekomunikasi Fiber Optic",
-    tagline: "High-Speed Connectivity",
-    description:
-      "Specialized fiber optic infrastructure services including long-haul backbone deployment, metro fiber networks, and FTTX solutions. We utilize the latest fusion splicing and testing technologies.",
-    heroImage:
-      "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=1400&q=80",
-    features: [
-      {
-        icon: "🚜",
-        title: "HDD Drilling",
-        description:
-          "Horizontal Directional Drilling for underground fiber placement without surface disruption.",
-      },
-      {
-        icon: "🧵",
-        title: "Splicing & Testing",
-        description:
-          "Precision fusion splicing and comprehensive OTDR/Power Meter testing.",
-      },
-    ],
-    specs: [
-      { label: "Cable Type", value: "Single Mode / Multi Mode" },
-      { label: "Testing", value: "OTDR, iOLM, LSPM" },
-      { label: "Equipment", value: "Fujikura, EXFO" },
-    ],
-    subServices: [
-      {
-        name: "FTTH Deployment",
-        description: "Fiber to the Home rollouts for residential areas.",
-        image:
-          "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["network-infrastructure", "maintenance-services"],
-  },
-  {
     slug: "heavy-equipment",
     tag: "Supply & Rent",
     name: "Heavy Duty Equipment & Rent",
@@ -397,16 +146,16 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80",
     features: [
       {
-        icon: "🏗️",
-        title: "Forklift Fleet",
+        icon: "🚜",
+        title: "Authorized Brand Partners",
         description:
-          "Electric, LPG, and diesel forklifts from 1.5 to 25 tons. Rental and long-term leasing available with trained operators.",
+          "Kami adalah mitra resmi untuk Plum Mewah (Premium), Heli, EP Equipment (Li-ion), Liu Gong, dan Zoomlion.",
       },
       {
-        icon: "🚜",
-        title: "Construction Equipment",
+        icon: "🏗️",
+        title: "Specialized Unit Types",
         description:
-          "Excavators, bulldozers, cranes, and compactors available for project-based rental with certified operators.",
+          "Tersedia berbagai jenis unit mulai dari Electric Forklift, Reach Truck, Excavator, hingga Crawler Crane.",
       },
       {
         icon: "🔩",
@@ -452,121 +201,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
           "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&q=75",
       },
     ],
-    relatedSlugs: ["procurement-workshop", "maintenance-services"],
-  },
-  {
-    slug: "power-automation",
-    tag: "Power Systems",
-    name: "Power Quality & Automation",
-    tagline: "Energy Efficiency & Control",
-    description:
-      "Ensuring optimal power performance through power quality harmonic analysis and implementing state-of-the-art automation systems for smart industrial operations.",
-    heroImage:
-      "https://images.unsplash.com/photo-1581094751159-0f49c0d60d3d?w=1400&q=80",
-    features: [
-      {
-        icon: "📊",
-        title: "Harmonic Analysis",
-        description:
-          "Detailed measurement and mitigation of power system harmonics.",
-      },
-      {
-        icon: "🤖",
-        title: "SCADA Systems",
-        description:
-          "Supervisory Control and Data Acquisition for real-time monitoring.",
-      },
-    ],
-    specs: [
-      { label: "Automation", value: "PLC, SCADA, HMI" },
-      { label: "Analysis", value: "Harmonics, Power Factor" },
-      { label: "Brands", value: "Schneider, Siemens, ABB" },
-    ],
-    subServices: [
-      {
-        name: "Smart Metering",
-        description: "Implementation of IoT-based energy monitoring systems.",
-        image:
-          "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["mechanical-electrical", "industrial-engineering"],
-  },
-  {
-    slug: "maintenance-services",
-    tag: "Services",
-    name: "Project & Maintenance Services",
-    tagline: "Reliability & Longevity",
-    description:
-      "Dedicated to maintaining the integrity of your infrastructure. We offer comprehensive project management and maintenance services to ensure your systems operate at peak performance.",
-    heroImage:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1400&q=80",
-    features: [
-      {
-        icon: "🛠️",
-        title: "Preventive Care",
-        description:
-          "Scheduled inspections to prevent costly equipment failures.",
-      },
-      {
-        icon: "🚑",
-        title: "Emergency Repair",
-        description:
-          "24/7 on-call technical support for critical system outages.",
-      },
-    ],
-    specs: [
-      { label: "Response Time", value: "< 4 Hours" },
-      { label: "SLA", value: "Up to 99.9% Uptime" },
-      { label: "Reporting", value: "Digital CMMS Integrated" },
-    ],
-    subServices: [
-      {
-        name: "Tower Maintenance",
-        description: "Structural audits and painting for telecom towers.",
-        image:
-          "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["network-infrastructure", "heavy-equipment"],
-  },
-  {
-    slug: "procurement-workshop",
-    tag: "Procurement",
-    name: "Workshop & Procurement",
-    tagline: "Sourcing & Fabrication",
-    description:
-      "Our integrated procurement and workshop division handles the sourcing of high-quality industrial materials and in-house fabrication of specialized engineering components.",
-    heroImage:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1400&q=80",
-    features: [
-      {
-        icon: "📦",
-        title: "Global Sourcing",
-        description:
-          "Direct procurement links with international manufacturers.",
-      },
-      {
-        icon: "⚒️",
-        title: "Custom Fabrication",
-        description:
-          "Workshop capabilities for steel structures and custom panels.",
-      },
-    ],
-    specs: [
-      { label: "Workshop Area", value: "2,500 sqm" },
-      { label: "Sourcing", value: "Global Logistics Network" },
-      { label: "Fabrication", value: "CNC, Lathe, Welding" },
-    ],
-    subServices: [
-      {
-        name: "Material Supply",
-        description: "Standard industrial components and raw material supply.",
-        image:
-          "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=75",
-      },
-    ],
-    relatedSlugs: ["industrial-engineering", "heavy-equipment"],
+    relatedSlugs: ["maintenance-services"],
   },
 ];
 
@@ -579,48 +214,6 @@ export interface ProjectFull extends Project {
 }
 
 export const ALL_PROJECTS: ProjectFull[] = [
-  {
-    id: "palangka-raya-tower",
-    category: "Telecom",
-    name: "Palangka Raya Tower",
-    image:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75",
-    href: "/portfolio/palangka-raya-tower",
-    year: "2024",
-    location: "Palangka Raya, Kalimantan Tengah",
-    client: "PT Telkomsel",
-    description:
-      "Construction of 72m lattice telecommunication tower with full BTS installation and microwave backhaul integration.",
-    tags: ["Telecom", "Tower", "BTS"],
-  },
-  {
-    id: "central-kalianta-power",
-    category: "Mechanical",
-    name: "Central Kalianta Power Plant",
-    image:
-      "https://images.unsplash.com/photo-1542336391-ae2936d8efe4?w=600&q=75",
-    href: "/portfolio/central-kalianta-power",
-    year: "2023",
-    location: "Kalimantan Tengah",
-    client: "PT PLN (Persero)",
-    description:
-      "Complete mechanical and electrical installation for a 10 MW diesel power plant including switchgear, control panels, and auxiliary systems.",
-    tags: ["Mechanical", "Electrical", "Power"],
-  },
-  {
-    id: "region-network-center",
-    category: "Network",
-    name: "Region Network Center",
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=75",
-    href: "/portfolio/region-network-center",
-    year: "2024",
-    location: "Jakarta Selatan",
-    client: "Kementerian Kominfo",
-    description:
-      "Design and deployment of regional network operations center with structured cabling, active equipment, and 24/7 monitoring systems.",
-    tags: ["Network", "Data Center", "Telecom"],
-  },
   {
     id: "surabaya-port-forklift",
     category: "Equipment",
@@ -636,34 +229,6 @@ export const ALL_PROJECTS: ProjectFull[] = [
     tags: ["Equipment", "Forklift", "Operations"],
   },
   {
-    id: "fiber-optic-balikpapan",
-    category: "Network",
-    name: "Balikpapan Fiber Backbone",
-    image:
-      "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=600&q=75",
-    href: "/portfolio/fiber-optic-balikpapan",
-    year: "2022",
-    location: "Balikpapan, Kalimantan Timur",
-    client: "PT Indosat Ooredoo",
-    description:
-      "120 km fiber optic backbone installation across Balikpapan city with 48-core cable, splicing, and OTDR acceptance testing.",
-    tags: ["Network", "Fiber Optic", "Infrastructure"],
-  },
-  {
-    id: "hvac-hospital-jakarta",
-    category: "Mechanical",
-    name: "RSUD Jakarta HVAC System",
-    image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=75",
-    href: "/portfolio/hvac-hospital-jakarta",
-    year: "2023",
-    location: "Jakarta Pusat",
-    client: "Pemerintah DKI Jakarta",
-    description:
-      "Design, supply, and installation of hospital-grade HVAC system including AHU, chiller plant, and clean room pressurization for a 400-bed hospital.",
-    tags: ["Mechanical", "HVAC", "Healthcare"],
-  },
-  {
     id: "crane-mining-kaltim",
     category: "Equipment",
     name: "Kaltim Mining Crane Ops",
@@ -676,20 +241,6 @@ export const ALL_PROJECTS: ProjectFull[] = [
     description:
       "Provision of 3 units 250-ton crawler cranes with certified riggers for heavy module installation at open-pit coal mining facility.",
     tags: ["Equipment", "Crane", "Mining"],
-  },
-  {
-    id: "bts-sulawesi-rollout",
-    category: "Telecom",
-    name: "Sulawesi BTS Rollout",
-    image:
-      "https://images.unsplash.com/photo-1520333789090-1afc82db536a?w=600&q=75",
-    href: "/portfolio/bts-sulawesi-rollout",
-    year: "2022",
-    location: "Sulawesi Selatan",
-    client: "PT XL Axiata",
-    description:
-      "Turnkey installation of 45 BTS sites across South Sulawesi including civil works, tower erection, equipment installation, and commissioning.",
-    tags: ["Telecom", "BTS", "Tower"],
   },
 ];
 
@@ -706,18 +257,6 @@ export const MILESTONES = [
     year: "2012",
     title: "First Major Contract",
     description:
-      "Awarded first PLN power plant project in Kalimantan, marking our expansion into large-scale infrastructure.",
-  },
-  {
-    year: "2015",
-    title: "Telecom Division",
-    description:
-      "Launched Network & Telecommunication division, entering the BTS and fiber optic market.",
-  },
-  {
-    year: "2018",
-    title: "ISO Certification",
-    description:
       "Achieved ISO 9001:2015 certification, reinforcing our commitment to quality management.",
   },
   {
@@ -728,9 +267,9 @@ export const MILESTONES = [
   },
   {
     year: "2024",
-    title: "50+ Projects",
+    title: "Market Leader",
     description:
-      "Completed over 50 major infrastructure projects across 12 provinces in Indonesia.",
+      "Recognized as a leading material handling equipment provider for Indonesian ports and mines.",
   },
 ];
 
@@ -745,7 +284,7 @@ export const WHY_FEATURES = [
     icon: "🏆",
     title: "Licensed Experts",
     description:
-      "Supported by experienced engineers holding national and international professional certifications.",
+      "Didukung oleh mekanik dan operator bersertifikat SIO/K3 dengan jam terbang tinggi di berbagai sektor industri.",
   },
   {
     icon: "⚙️",
@@ -755,22 +294,91 @@ export const WHY_FEATURES = [
   },
 ];
 
+export const SECTORS: Sector[] = [
+  {
+    id: "mining",
+    title: "Pertambangan",
+    description:
+      "Solusi armada berat untuk operasional tambang terbuka (open-pit) yang menuntut durabilitas tinggi dalam kondisi ekstrem.",
+    image: "/images/liugong/8128h.jpg",
+    icon: "⛏️",
+    href: "/sectors/mining",
+    relatedCategories: ["Excavator", "Crane", "Bulldozer"],
+  },
+  {
+    id: "construction",
+    title: "Konstruksi & Infrastruktur",
+    description:
+      "Dukungan crane dan alat berat untuk pembangunan gedung bertingkat, jalan tol, dan proyek strategis nasional.",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=800&q=80",
+    icon: "🏗️",
+    href: "/sectors/construction",
+    relatedCategories: ["Crane", "Excavator", "Bulldozer", "Roller"],
+  },
+  {
+    id: "logistics",
+    title: "Logistik & Pelabuhan",
+    description:
+      "Optimasi bongkar muat dan efisiensi pergudangan dengan lini forklift dan reach truck kelas dunia.",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    icon: "📦",
+    href: "/sectors/logistics",
+    relatedCategories: ["Forklift", "Warehouse", "Pallet"],
+  },
+  {
+    id: "manufacturing",
+    title: "Manufaktur & FMCG",
+    description:
+      "Dukungan operasional pabrik dengan forklift elektrik ramah lingkungan untuk penanganan material yang presisi dan higienis.",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    icon: "🏭",
+    href: "/sectors/manufacturing",
+    relatedCategories: ["Electric Forklift", "Warehouse", "Pallet"],
+  },
+  {
+    id: "agriculture",
+    title: "Perkebunan & Kehutanan",
+    description:
+      "Alat berat tangguh untuk pembukaan lahan, perawatan jalan akses, dan efisiensi logistik hasil perkebunan.",
+    image:
+      "https://images.unsplash.com/photo-1594488310397-29307c87c08a?w=800&q=80",
+    icon: "🌴",
+    href: "/sectors/agriculture",
+    relatedCategories: ["Excavator", "Bulldozer"],
+  },
+];
+
 export const FOOTER_SERVICES = [
-  { label: "M&E Engineering", href: "/services/mechanical-electrical" },
-  { label: "Industrial Engineering", href: "/services/industrial-engineering" },
-  { label: "Network Telecom", href: "/services/network-infrastructure" },
-  { label: "Fiber Optic", href: "/services/fiber-optic" },
-  { label: "Power & Automation", href: "/services/power-automation" },
-  { label: "Equipment Rental", href: "/services/heavy-equipment" },
-  { label: "Maintenance Services", href: "/services/maintenance-services" },
+  {
+    id: "footer-forklift",
+    label: "Forklift Rental",
+    href: "/services/heavy-equipment",
+  },
+  {
+    id: "footer-crane",
+    label: "Crane Solutions",
+    href: "/services/heavy-equipment",
+  },
+  {
+    id: "footer-container",
+    label: "Container Handling",
+    href: "/services/heavy-equipment",
+  },
+  {
+    id: "footer-maintenance",
+    label: "Maintenance Services",
+    href: "/services/maintenance-services",
+  },
 ];
 
 export const FOOTER_COMPANY = [
-  { label: "About Us", href: "/about" }, // New link based on design.md
-  { label: "Media", href: "/media" }, // New link based on design.md
-  { label: "Careers", href: "/careers" },
-  { label: "Portfolio", href: "/portfolio" }, // Renamed from 'Projects' for consistency
-  { label: "Contact Support", href: "/contact" },
+  { id: "footer-about", label: "About Us", href: "/about" },
+  { id: "footer-fleet", label: "Fleet Experience", href: "/portfolio" },
+  { id: "footer-hse", label: "HSE Policy", href: "/about/hse" },
+  { id: "footer-contact", label: "Contact Us", href: "/contact" },
 ];
 
 export const NEWS_ARTICLES = [
@@ -824,20 +432,392 @@ export const DOWNLOAD_RESOURCES = [
   },
 ];
 
-export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
+export const PARTNER_BRANDS: Brand[] = [
   {
-    id: "forklift-mitsubishi-10t",
-    name: "Mitsubishi FD100",
+    id: "plum-mewah",
+    name: "Plum Mewah",
+    logo: "/logos/plum-mewah.png",
+    category: "Premium Material Handling",
+  },
+  {
+    id: "heli",
+    name: "Heli",
+    logo: "/logos/heli.png",
+    category: "Forklift Specialist",
+  },
+  {
+    id: "ep-equipment",
+    name: "EP Equipment",
+    logo: "/logos/ep.png",
+    category: "Li-Ion Warehouse Tech",
+  },
+  {
+    id: "liu-gong",
+    name: "Liu Gong",
+    logo: "/logos/liugong.png",
+    category: "Heavy Construction",
+  },
+  {
+    id: "zoomlion",
+    name: "Zoomlion",
+    logo: "/logos/zoomlion.png",
+    category: "Cranes & Concrete",
+  },
+];
+
+export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
+  // --- PLUM MEWAH SERIES ---
+  {
+    id: "pm-5000",
+    name: "Plum Mewah PM-5000",
+    brandId: "plum-mewah",
+    category: "High-End Forklift",
+    image: "/images/plummewah/pm-5000.png",
+    description:
+      "Unit forklift premium dengan fokus pada durabilitas tinggi dan efisiensi bahan bakar untuk operasional 24/7.",
+    specs: [
+      { label: "Brand", value: "Plum Mewah" },
+      { label: "Capacity", value: "5.0 Tons" },
+      { label: "Power Source", value: "Diesel" },
+      { label: "Transmission", value: "Automatic" },
+    ],
+  },
+  {
+    id: "pm-1500-mini-dumper",
+    name: "Plum Mewah PM-1500 Mini Dumper",
+    brandId: "plum-mewah",
+    category: "Mini Dumper",
+    image: "/images/plummewah/pm-1500.png",
+    description:
+      "Mini dumper tipe tipper yang ringkas dan efisien, ideal untuk proyek konstruksi skala kecil dan area terbatas.",
+    specs: [
+      { label: "Engine", value: "KOOP 1100" },
+      { label: "Engine Power", value: "9.5 KW (13 hp)" },
+      { label: "Machine Weight", value: "920 kg" },
+      { label: "Max Loading Weight", value: "1500 kg" },
+      { label: "Machine Size", value: "2610mm(L) * 1370mm(W) * 1340mm(H)" },
+      { label: "Container Size", value: "1710mm(L) * 1370mm(W) * 450mm(H)" },
+      { label: "Gear", value: "3F+R" },
+      { label: "Track", value: "3509050" },
+      { label: "Speed", value: "8 km/h" },
+      { label: "Climbing Angle", value: "35°" },
+      { label: "Wading Depth", value: "550 mm" },
+      { label: "Swampland Depth", value: "300 mm" },
+    ],
+  },
+  {
+    id: "pm-5000-crawler-dumper",
+    name: "Plum Mewah PM-5000 5 Ton Crawler Dumper",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper",
+    image: "/images/plummewah/pd-5000tag.png",
+    description:
+      "Crawler dumper 5 ton dengan performa tinggi, cocok untuk medan berat dan pengangkutan material dalam jumlah besar.",
+    specs: [
+      { label: "Engine", value: "Diesel engine, Yunnei 490" },
+      { label: "Engine Power", value: "50 hp" },
+      { label: "Machine Weight", value: "2000 kg" },
+      { label: "Max Loading Weight", value: "5000 kg" },
+      { label: "Machine Size", value: "3600mm(L) * 1600mm(W) * 2200mm(H)" },
+      { label: "Container Size", value: "2350mm(L) * 1650mm(W) * 1220mm(H)" },
+      { label: "Gear", value: "YZ28 6F+2R" },
+      { label: "Track", value: "C40090BS62" },
+      { label: "Speed", value: "12 km/h" },
+      { label: "Climbing Angle", value: "30°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pm-5000ta-crawler-dumper-high-lift",
+    name: "Plum Mewah PM-5000TA 5 Ton Crawler Dumper High Lift 2.5M",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper (High Lift)",
+    image: "/images/plummewah/pm-5000ta.png",
+    description:
+      "Crawler dumper 5 ton dengan kemampuan angkat tinggi hingga 2.5 meter, ideal untuk pemindahan material ke tempat yang lebih tinggi.",
+    specs: [
+      { label: "Engine", value: "Diesel engine, Yunnei 490" },
+      { label: "Engine Power", value: "50 hp" },
+      { label: "Machine Weight", value: "2300 kg" },
+      { label: "Max Loading Weight", value: "5000 kg" },
+      { label: "Lift Weight", value: "4000 kg" },
+      { label: "Machine Size", value: "3600mm(L) * 1600mm(W) * 2200mm(H)" },
+      { label: "Container Size", value: "2350mm(L) * 1650mm(W) * 1220mm(H)" },
+      { label: "Gear", value: "YZ28 6F+2R" },
+      { label: "Lift Up Height", value: "2500 mm" },
+      { label: "Track", value: "C40090BS62" },
+      { label: "Speed", value: "12 km/h" },
+      { label: "Climbing Angle", value: "30°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pm-3500ta-crawler-dumper-high-lift",
+    name: "Plum Mewah PM-3500TA High Lift 2.5M Crawler Dumper",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper (High Lift)",
+    image: "/images/plummewah/pm-3500ta.png",
+    description:
+      "Crawler dumper 3.5 ton dengan fitur angkat tinggi 2.5 meter, menawarkan fleksibilitas untuk berbagai kebutuhan proyek.",
+    specs: [
+      { label: "Engine", value: "Diesel engine, Changfa 1130" },
+      { label: "Engine Power", value: "30 hp" },
+      { label: "Machine Weight", value: "2000 kg" },
+      { label: "Max Loading Weight", value: "3500 kg" },
+      { label: "Lift Weight", value: "3000 kg" },
+      { label: "Machine Size", value: "3330mm(L) * 1600mm(W) * 2200mm(H)" },
+      { label: "Container Size", value: "2170mm(L) * 1650mm(W) * 1220mm(H)" },
+      { label: "Gear", value: "YZ21 6F+2R" },
+      { label: "Lift Up Height", value: "2500 mm" },
+      { label: "Track", value: "C40090BS56" },
+      { label: "Speed", value: "10 km/h" },
+      { label: "Climbing Angle", value: "30°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pm-3500-crawler-dumper",
+    name: "Plum Mewah PM-3500 Crawler Dumper Tipper Type",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper",
+    image: "/images/plummewah/pm-3500.png",
+    description:
+      "Crawler dumper 3.5 ton tipe tipper yang tangguh, dirancang untuk efisiensi pengangkutan material di berbagai kondisi medan.",
+    specs: [
+      { label: "Engine", value: "Diesel engine, Changfa 1130" },
+      { label: "Engine Power", value: "30 hp" },
+      { label: "Machine Weight", value: "1850 kg" },
+      { label: "Max Loading Weight", value: "3500 kg" },
+      { label: "Machine Size", value: "3330mm(L) * 1600mm(W) * 2200mm(H)" },
+      { label: "Container Size", value: "2170mm(L) * 1650mm(W) * 1220mm(H)" },
+      { label: "Gear", value: "YZ21 6F+2R" },
+      { label: "Track", value: "C40090BS56" },
+      { label: "Speed", value: "10 km/h" },
+      { label: "Climbing Angle", value: "30°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pd-5000tag-crawler-dumper-scissor-lift-crane",
+    name: "Plum Mewah PD-5000TAG Crawler Dumper Scissor Lift (Crane Grab)",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper (Scissor Lift)",
+    image: "/images/plummewah/pd-5000tag.png",
+    description:
+      "Crawler dumper dengan scissor lift dan crane grab, menawarkan solusi multifungsi untuk pengangkutan dan penanganan material.",
+    specs: [
+      {
+        label: "Fitur Tambahan",
+        value: "New support roller-Forged type, Parking brake",
+      },
+      { label: "Engine", value: "Diesel engine" },
+      { label: "Engine Model", value: "CF490" },
+      { label: "Power", value: "37 kw" },
+      { label: "Machine Weight", value: "3050 kg" },
+      { label: "Max Loading Weight", value: "3500 kg" },
+      { label: "Machine Size", value: "4050mm(L) * 1650mm(W) * 2525mm(H)" },
+      { label: "Container Size", value: "2040mm(L) * 1650mm(W) * 1255mm(H)" },
+      { label: "Scissors Lift Height", value: "2350 mm" },
+      { label: "Gear System", value: "GL 28" },
+      { label: "Rubber Track Size", value: "C40090BS62" },
+      { label: "Speed Forward", value: "4-12 km/h" },
+      { label: "Speed Return", value: "1-3 km/h" },
+      { label: "Climbing Angle", value: "35°" },
+      { label: "Wading Depth", value: "400 mm" },
+      { label: "Swampland Depth", value: "350 mm" },
+      { label: "Ground Clearance", value: "320 mm" },
+      { label: "Hydraulic Oil Pressure", value: "18 mPa" },
+      { label: "Battery", value: "12v/80A*2" },
+      { label: "Fuel Tank Capacity", value: "50 L" },
+      { label: "Brake System", value: "Parking brake" },
+    ],
+  },
+  {
+    id: "pd-5000ta-crawler-dumper-scissor-lift",
+    name: "Plum Mewah PD-5000TA 5 Ton Crawler Dumper Scissor Lift",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper (Scissor Lift)",
+    image: "/images/plummewah/pd-5000ta.png",
+    description:
+      "Crawler dumper 5 ton dengan scissor lift, dilengkapi fitur terbaru untuk efisiensi dan keamanan operasional yang lebih baik.",
+    specs: [
+      {
+        label: "Fitur Terbaru",
+        value:
+          "New support roller-Forged type, Heightened cargo box, Parking Brake",
+      },
+      { label: "Engine", value: "Diesel engine, Changfa 490" },
+      { label: "Engine Power", value: "50 hp" },
+      { label: "Machine Weight", value: "2400 kg" },
+      { label: "Max Loading Weight", value: "5000 kg" },
+      { label: "Lift Weight", value: "4000 kg" },
+      { label: "Machine Size", value: "3580mm(L) * 1650mm(W) * 2260mm(H)" },
+      { label: "Container Size", value: "2350mm(L) * 1650mm(W) * 1260mm(H)" },
+      { label: "Gear", value: "6F+2R" },
+      { label: "Lift Up Height", value: "2400 mm" },
+      { label: "Track", value: "C40090BS62" },
+      { label: "Speed", value: "4-12 km/h" },
+      { label: "Climbing Angle", value: "35°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pd-3500ta-crawler-dumper-scissor-lift",
+    name: "Plum Mewah PD-3500TA 3.5 Ton Crawler Dumper Scissor Lift",
+    brandId: "plum-mewah",
+    category: "Crawler Dumper (Scissor Lift)",
+    image: "/images/plummewah/pd-3500ta.png",
+    description:
+      "Crawler dumper 3.5 ton dengan scissor lift, diperbarui dengan fitur-fitur baru untuk meningkatkan kinerja dan keandalan.",
+    specs: [
+      {
+        label: "Fitur Terbaru",
+        value:
+          "New support roller-Forged type, Heightened cargo box, Parking Brake",
+      },
+      { label: "Engine", value: "Diesel engine, Changfa 1130" },
+      { label: "Engine Power", value: "35 hp" },
+      { label: "Machine Weight", value: "2100 kg" },
+      { label: "Max Loading Weight", value: "3500 kg" },
+      { label: "Lift Weight", value: "3000 kg" },
+      { label: "Machine Size", value: "3200mm(L) * 1650mm(W) * 2260mm(H)" },
+      { label: "Container Size", value: "2040mm(L) * 1650mm(W) * 1250mm(H)" },
+      { label: "Gear", value: "6F+2R" },
+      { label: "Lift Up Height", value: "2400 mm" },
+      { label: "Track", value: "C40090BS56" },
+      { label: "Speed", value: "3-8 km/h" },
+      { label: "Climbing Angle", value: "35°" },
+      { label: "Wading Depth", value: "40 cm" },
+      { label: "Swampland Depth", value: "40 cm" },
+    ],
+  },
+  {
+    id: "pm-3000e",
+    name: "Plum Mewah PM-3000E",
+    brandId: "plum-mewah",
+    category: "Electric Forklift",
+    image: "/images/plummewah/pm-3500.png",
+    description:
+      "Forklift elektrik premium dengan sistem kontrol cerdas untuk penggunaan indoor yang intensif.",
+    specs: [
+      { label: "Brand", value: "Plum Mewah" },
+      { label: "Capacity", value: "3.0 Tons" },
+      { label: "Power Source", value: "AC Electric Motor" },
+      { label: "Feature", value: "Silent Operation" },
+    ],
+  },
+  // --- HELI SERIES ---
+  {
+    id: "heli-cpcd30",
+    name: "Heli CPCD30",
+    brandId: "heli",
     category: "Forklift",
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
     description:
-      "High-performance diesel forklift optimized for heavy industrial port and warehouse operations.",
+      "Forklift sejuta umat yang handal, mudah dalam perawatan, dan memiliki suku cadang yang melimpah.",
     specs: [
-      { label: "Capacity", value: "10.0 Tons" },
-      { label: "Load Center", value: "600 mm" },
-      { label: "Engine", value: "Mitsubishi 6D16" },
-      { label: "Lift Height", value: "3,000 mm" },
+      { label: "Brand", value: "Heli" },
+      { label: "Capacity", value: "3.0 Tons" },
+      { label: "Engine", value: "Isuzu C240" },
+    ],
+  },
+  {
+    id: "heli-cqd16",
+    name: "Heli CQD16 Reach Truck",
+    brandId: "heli",
+    category: "Warehouse Equipment",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
+    description:
+      "Solusi optimal untuk pergudangan high-rack dengan radius putar yang sangat kecil.",
+    specs: [
+      { label: "Brand", value: "Heli" },
+      { label: "Lift Height", value: "8.5 Meters" },
+      { label: "Capacity", value: "1.6 Tons" },
+    ],
+  },
+  // --- EP EQUIPMENT SERIES ---
+  {
+    id: "ep-efl252",
+    name: "EP Equipment EFL252",
+    brandId: "ep-equipment",
+    category: "Electric Forklift",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    description:
+      "Inovasi Li-ion tercanggih yang menggabungkan kekuatan forklift diesel dengan efisiensi tenaga listrik.",
+    specs: [
+      { label: "Brand", value: "EP Equipment" },
+      { label: "Battery", value: "80V/280Ah Li-ion" },
+      { label: "Charging", value: "Fast Charging 2h" },
+    ],
+  },
+  {
+    id: "ep-f4",
+    name: "EP F4 Li-ion Pallet Truck",
+    brandId: "ep-equipment",
+    category: "Pallet Jack",
+    image:
+      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    description:
+      "Pallet truck elektrik yang sangat lincah untuk bongkar muat di area sempit.",
+    specs: [
+      { label: "Brand", value: "EP Equipment" },
+      { label: "Capacity", value: "1.5 Tons" },
+      { label: "Battery", value: "24V/20Ah Li-ion" },
+    ],
+  },
+  // --- LIU GONG SERIES ---
+  {
+    id: "liugong-922e",
+    name: "Liu Gong 922E",
+    brandId: "liu-gong",
+    category: "Excavator",
+    image:
+      "https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80",
+    description:
+      "Excavator generasi terbaru dengan efisiensi hidrolik yang ditingkatkan untuk pekerjaan tanah berat.",
+    specs: [
+      { label: "Brand", value: "Liu Gong" },
+      { label: "Operating Weight", value: "22,000 kg" },
+      { label: "Bucket", value: "1.1 m³" },
+    ],
+  },
+  // --- ZOOMLION SERIES ---
+  {
+    id: "zoomlion-quy150",
+    name: "Zoomlion QUY150",
+    brandId: "zoomlion",
+    category: "Crawler Crane",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+    description:
+      "Crane berkapasitas besar untuk proyek infrastruktur strategis dengan tingkat keamanan tinggi.",
+    specs: [
+      { label: "Brand", value: "Zoomlion" },
+      { label: "Max Capacity", value: "150 Tons" },
+      { label: "Main Boom", value: "80 Meters" },
+    ],
+  },
+  {
+    id: "zoomlion-ztc250",
+    name: "Zoomlion ZTC250",
+    brandId: "zoomlion",
+    category: "Truck Crane",
+    image:
+      "https://images.unsplash.com/photo-1535930749574-1399327ce78f?w=1600&q=80",
+    description:
+      "Truck crane lincah untuk pekerjaan konstruksi perkotaan dan pengangkatan cepat.",
+    specs: [
+      { label: "Brand", value: "Zoomlion" },
+      { label: "Max Capacity", value: "25 Tons" },
+      { label: "Boom Length", value: "34 Meters" },
     ],
   },
   {

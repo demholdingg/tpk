@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { PRODUCTS_DATA } from "@/data";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CtaSection } from "@/components/sections/CtaSection";
 
 // Varian untuk animasi pengetikan
 const typingContainer = {
@@ -162,8 +161,6 @@ export default function ProductsPage() {
           ))}
         </div>
       </section>
-
-      <CtaSection />
     </div>
   );
 }
