@@ -6,15 +6,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ShieldCheck, Info } from "lucide-react";
 import { PARTNER_BRANDS, HEAVY_EQUIPMENT_FLEET, type FleetItem } from "@/data";
 
-export function FleetListClient() {
+interface FleetListClientProps {
+  items: FleetItem[];
+}
+
+export function FleetListClient({ items }: FleetListClientProps) {
   // State untuk melacak brand yang dipilih
   const [activeBrand, setActiveBrand] = useState<string>("all");
 
   // Logika Filter: Menyaring armada berdasarkan brandId
   const filteredFleet = useMemo(() => {
-    if (activeBrand === "all") return HEAVY_EQUIPMENT_FLEET;
-    return HEAVY_EQUIPMENT_FLEET.filter((item) => item.brandId === activeBrand);
-  }, [activeBrand]);
+    if (activeBrand === "all") return items;
+    return items.filter((item) => item.brandId === activeBrand);
+  }, [activeBrand, items]);
 
   return (
     <section className="py-16 px-6 md:px-12 bg-white">
