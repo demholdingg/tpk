@@ -1,5 +1,29 @@
 import type { Service, Project, NavLink } from "@/types";
 
+// ==========================================
+// TYPE DEFINITIONS
+// ==========================================
+
+export interface HeroSlide {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  video?: string;
+  tag: string;
+}
+
+export interface Sector {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  icon: string;
+  href: string;
+  relatedCategories: string[];
+}
+
 export interface FleetItem {
   id: string;
   name: string;
@@ -17,53 +41,52 @@ export interface Brand {
   category: string;
 }
 
-export interface Sector {
+export interface ServiceDetail {
+  slug: string;
+  tag: string;
+  name: string;
+  tagline: string;
+  description: string;
+  heroImage: string;
+  features: { icon: string; title: string; description: string }[];
+  specs: { label: string; value: string }[];
+  subServices: { name: string; description: string; image: string }[];
+  relatedSlugs: string[];
+}
+
+export interface ProjectFull extends Project {
+  year: string;
+  location: string;
+  client: string;
+  description: string;
+  tags: string[];
+}
+
+export interface ProductItem {
   id: string;
-  title: string;
+  name: string;
+  slug: string;
   description: string;
   image: string;
-  icon: string;
-  href: string;
-  relatedCategories: string[];
+  features: string[];
+  application: string;
 }
+
+// ==========================================
+// CONSTANT DATA
+// ==========================================
 
 export const NAV_LINKS: (NavLink & { children?: NavLink[] })[] = [
   { label: "Home", href: "/" },
   {
     label: "About Us",
     href: "/about",
-    children: [
-      { label: "Company Profile", href: "/about" },
-      { label: "Workshop & Facilities", href: "/about/facilities" },
-      { label: "HSE / K3L", href: "/about/hse" },
-      { label: "Partners & Clients", href: "/about/partners" },
-    ],
+    children: [{ label: "Company Profile", href: "/about" }],
   },
   { label: "Fleet & Equipment", href: "/services" },
   { label: "Project Experience", href: "/portfolio" },
-  {
-    label: "Media",
-    href: "/media",
-    children: [
-      { label: "News", href: "/media/news" },
-      { label: "SEI on Frame", href: "/media/frame" },
-      { label: "E-Magazine", href: "/media/magazine" },
-      { label: "Download Center", href: "/media/downloads" },
-    ],
-  },
-
   { label: "Contact", href: "/contact" },
 ];
-
-export interface HeroSlide {
-  id: number;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  video?: string;
-  tag: string;
-}
 
 export const HOME_HERO_SLIDES: HeroSlide[] = [
   {
@@ -120,19 +143,6 @@ export const SERVICES: Service[] = [
     href: "/services/maintenance-services",
   },
 ];
-
-export interface ServiceDetail {
-  slug: string;
-  tag: string;
-  name: string;
-  tagline: string;
-  description: string;
-  heroImage: string;
-  features: { icon: string; title: string; description: string }[];
-  specs: { label: string; value: string }[];
-  subServices: { name: string; description: string; image: string }[];
-  relatedSlugs: string[];
-}
 
 export const SERVICE_DETAILS: ServiceDetail[] = [
   {
@@ -204,14 +214,6 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     relatedSlugs: ["maintenance-services"],
   },
 ];
-
-export interface ProjectFull extends Project {
-  year: string;
-  location: string;
-  client: string;
-  description: string;
-  tags: string[];
-}
 
 export const ALL_PROJECTS: ProjectFull[] = [
   {
@@ -379,57 +381,6 @@ export const FOOTER_COMPANY = [
   { id: "footer-fleet", label: "Fleet Experience", href: "/portfolio" },
   { id: "footer-hse", label: "HSE Policy", href: "/about/hse" },
   { id: "footer-contact", label: "Contact Us", href: "/contact" },
-];
-
-export const NEWS_ARTICLES = [
-  {
-    id: 1,
-    date: "Oct 24, 2024",
-    category: "Corporate",
-    title: "Teknika Pesona Kahayan Expands Renewable Energy Division",
-    excerpt:
-      "Strengthening our commitment to sustainable infrastructure with new solar and hydro power initiatives across Eastern Indonesia.",
-    image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=75",
-  },
-  {
-    id: 2,
-    date: "Sep 12, 2024",
-    category: "Project Update",
-    title: "Successful Commissioning of 72m Tower in Palangka Raya",
-    excerpt:
-      "Our telecom team successfully completed the structural and active equipment integration for the new regional connectivity hub.",
-    image:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75",
-  },
-  {
-    id: 3,
-    date: "Aug 05, 2024",
-    category: "HSE",
-    title: "Achieving 1 Million Safe Man-Hours Milestone",
-    excerpt:
-      "Safety remains our top priority. We are proud to announce another year of zero LTI (Lost Time Injury) across all project sites.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=75",
-  },
-];
-
-export const DOWNLOAD_RESOURCES = [
-  {
-    title: "Company Profile 2024",
-    type: "PDF",
-    size: "4.2 MB",
-  },
-  {
-    title: "Safety & HSE Guidelines",
-    type: "PDF",
-    size: "1.8 MB",
-  },
-  {
-    title: "Annual Sustainability Report",
-    type: "PDF",
-    size: "3.5 MB",
-  },
 ];
 
 export const PARTNER_BRANDS: Brand[] = [
@@ -728,6 +679,38 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     ],
   },
   {
+    id: "heli-cpcd35",
+    name: "Heli CPCD35",
+    brandId: "heli",
+    category: "Diesel Forklift",
+    image:
+      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+    description:
+      "Forklift diesel kapasitas 3.5 ton dengan mesin bertenaga untuk penggunaan outdoor yang berat.",
+    specs: [
+      { label: "Brand", value: "Heli" },
+      { label: "Capacity", value: "3.5 Tons" },
+      { label: "Engine", value: "Quanchai / Isuzu" },
+      { label: "Transmission", value: "Torque Converter" },
+    ],
+  },
+  {
+    id: "heli-cpd25-li",
+    name: "Heli CPD25 Lithium-Ion",
+    brandId: "heli",
+    category: "Electric Forklift",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    description:
+      "Forklift elektrik dengan teknologi baterai Lithium-Ion untuk efisiensi tinggi dan bebas perawatan.",
+    specs: [
+      { label: "Brand", value: "Heli" },
+      { label: "Capacity", value: "2.5 Tons" },
+      { label: "Battery", value: "Lithium-Ion 80V" },
+      { label: "Motor", value: "AC Drive" },
+    ],
+  },
+  {
     id: "heli-cqd16",
     name: "Heli CQD16 Reach Truck",
     brandId: "heli",
@@ -759,6 +742,119 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     ],
   },
   {
+    id: "heli-h3c-cpqd1520",
+    name: "Heli H3C Series CPQD15-20",
+    brandId: "heli",
+    category: "Tire Forklift",
+    image:
+      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+    description:
+      "Forklift seri H3C yang lincah dengan mesin Kubota, dirancang untuk performa optimal di area logistik dengan ban tunggal.",
+    specs: [
+      { label: "Rated Capacity", value: "3,000 - 4,000 lbs" },
+      { label: "Engine", value: "Kubota WG2503 (Gas/LPG)" },
+      { label: "Travel Speed", value: "10.8 mph (Loaded)" },
+      { label: "Overall Width", value: "42 inches" },
+    ],
+  },
+  {
+    id: "heli-h3c-cpqd4050",
+    name: "Heli H3C Series CPQD40-50",
+    brandId: "heli",
+    category: "Tire Forklift",
+    image:
+      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    description:
+      "Heavy duty forklift dengan kapasitas hingga 5 ton, dilengkapi transmisi cerdas dan sistem suspensi peredam getaran.",
+    specs: [
+      { label: "Load Capacity", value: "4,000 - 5,000 kg" },
+      { label: "Fuel Type", value: "Petrol / LPG / Dual-Fuel" },
+      { label: "Transmission", value: "Intelligent Gear System" },
+      { label: "Max Speed", value: "16 - 19 km/h" },
+    ],
+  },
+  {
+    id: "heli-cpd3032c",
+    name: "Heli CPD30-32C",
+    brandId: "heli",
+    category: "Electric Forklift",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    description:
+      "Forklift elektrik standar dengan kapasitas angkat berat, dilengkapi rem cakram oli ganda dan perlindungan overload hidrolik.",
+    specs: [
+      { label: "Capacity", value: "3.0 - 3.2 Tons" },
+      { label: "Power Source", value: "Electric (Lead-Acid)" },
+      { label: "Lift Height", value: "Up to 7,500 mm" },
+      { label: "Brake", value: "Oil Disk Brakes" },
+    ],
+  },
+  {
+    id: "heli-qycd6080",
+    name: "Heli G Series QYCD60-80",
+    brandId: "heli",
+    category: "Tow Tractor",
+    image:
+      "https://images.unsplash.com/photo-1516934024742-b461fba47600?w=1600&q=80",
+    description:
+      "Tow tractor diesel performa tinggi untuk lingkungan berat seperti pelabuhan dan area pertambangan.",
+    specs: [
+      { label: "Drawbar Pull", value: "60 kN - 80 kN" },
+      { label: "Power Output", value: "118 kW" },
+      { label: "Max Speed", value: "30 km/h" },
+      { label: "Brake", value: "4-wheel Hydraulic" },
+    ],
+  },
+  {
+    id: "heli-cbd20j-b",
+    name: "Heli CBD20J-B",
+    brandId: "heli",
+    category: "Electric Pallet Truck",
+    image:
+      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    description:
+      "Pallet truck elektrik walkie yang efisien untuk operasional gudang, logistik, dan pemuatan kontainer.",
+    specs: [
+      { label: "Capacity", value: "2,000 kg" },
+      { label: "Drive Type", value: "Walkie" },
+      { label: "Turning Radius", value: "1415 mm" },
+      { label: "Battery", value: "24V Lead Acid/Li-Ion" },
+    ],
+  },
+  {
+    id: "heli-cbs15j",
+    name: "Heli CBS15J",
+    brandId: "heli",
+    category: "Semi-Electric Stacker",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    description:
+      "Stacker semi-elektrik dengan penggerak manual dan angkat elektrik, ideal untuk penanganan material ringan di gudang.",
+    specs: [
+      { label: "Capacity", value: "1,500 kg" },
+      { label: "Lift Height", value: "1,600 - 3,500 mm" },
+      { label: "Lift Motor", value: "1.5 kW DC" },
+      { label: "Battery", value: "12V / 120Ah" },
+    ],
+  },
+  // --- EP EQUIPMENT SERIES ---
+  {
+    id: "ep-efl302",
+    name: "EP Equipment EFL302",
+    brandId: "ep-equipment",
+    category: "Electric Forklift",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
+    description:
+      "Forklift elektrik Li-Ion generasi terbaru yang dirancang untuk menggantikan unit diesel konvensional.",
+    specs: [
+      { label: "Brand", value: "EP Equipment" },
+      { label: "Capacity", value: "3.0 Tons" },
+      { label: "Battery", value: "80V/410Ah Li-Ion" },
+      { label: "Gradeability", value: "15%" },
+    ],
+  },
+  {
     id: "ep-f4",
     name: "EP F4 Li-ion Pallet Truck",
     brandId: "ep-equipment",
@@ -771,6 +867,22 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
       { label: "Brand", value: "EP Equipment" },
       { label: "Capacity", value: "1.5 Tons" },
       { label: "Battery", value: "24V/20Ah Li-ion" },
+    ],
+  },
+  {
+    id: "ep-ept20-15et",
+    name: "EP EPT20-15ET",
+    brandId: "ep-equipment",
+    category: "Electric Pallet Truck",
+    image:
+      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    description:
+      "Pallet truck elektrik yang sangat populer untuk aplikasi pergudangan dengan desain yang sangat kompak.",
+    specs: [
+      { label: "Brand", value: "EP Equipment" },
+      { label: "Capacity", value: "1.5 Tons" },
+      { label: "Drive Unit", value: "DC 0.65kW" },
+      { label: "Turning Radius", value: "1350 mm" },
     ],
   },
   // --- LIU GONG SERIES ---
@@ -787,6 +899,102 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
       { label: "Brand", value: "Liu Gong" },
       { label: "Operating Weight", value: "22,000 kg" },
       { label: "Bucket", value: "1.1 m³" },
+    ],
+  },
+  {
+    id: "ep-cpd20l2",
+    name: "EP Equipment CPD20L2",
+    brandId: "ep-equipment",
+    category: "Electric Forklift",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    description:
+      "Forklift elektrik dengan sasis Li-Ion terintegrasi untuk ruang kaki yang lebih luas dan efisiensi energi maksimal.",
+    specs: [
+      { label: "Capacity", value: "2.0 Tons" },
+      { label: "Battery", value: "48V/360Ah Li-Ion" },
+      { label: "Turning Radius", value: "2120 mm" },
+      { label: "Gradeability", value: "15%" },
+    ],
+  },
+  {
+    id: "ep-es12-12wa",
+    name: "EP Equipment ES12-12WA",
+    brandId: "ep-equipment",
+    category: "Electric Stacker",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
+    description:
+      "Stacker elektrik walkie yang tangguh untuk penumpukan palet di lorong gudang yang sempit.",
+    specs: [
+      { label: "Capacity", value: "1.2 Tons" },
+      { label: "Lift Height", value: "3,000 mm" },
+      { label: "Battery", value: "24V/125Ah" },
+      { label: "Service Weight", value: "520 kg" },
+    ],
+  },
+  // --- LIU GONG SERIES ---
+  {
+    id: "liugong-856h",
+    name: "Liu Gong 856H",
+    brandId: "liu-gong",
+    category: "Wheel Loader",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=1600&q=80",
+    description:
+      "Wheel loader handal dengan efisiensi bahan bakar optimal untuk operasional tambang dan kuari.",
+    specs: [
+      { label: "Brand", value: "Liu Gong" },
+      { label: "Bucket Capacity", value: "3.0 - 4.5 m³" },
+      { label: "Payload", value: "5,000 kg" },
+      { label: "Engine", value: "Cummins" },
+    ],
+  },
+  {
+    id: "liugong-8128h",
+    name: "Liu Gong 8128H",
+    brandId: "liu-gong",
+    category: "Wheel Loader",
+    image: "/images/liugong/8128h.jpg",
+    description:
+      "Wheel loader raksasa untuk operasional pertambangan skala besar dengan durabilitas dan tenaga pendorong ekstrem.",
+    specs: [
+      { label: "Operating Weight", value: "51,000 kg" },
+      { label: "Bucket Capacity", value: "7.0 m³" },
+      { label: "Payload", value: "12,000 kg" },
+      { label: "Engine", value: "Cummins QSX15" },
+    ],
+  },
+  {
+    id: "liugong-clg2030h",
+    name: "Liu Gong CLG2030H",
+    brandId: "liu-gong",
+    category: "Forklift",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
+    description:
+      "Forklift diesel seri H yang ekonomis namun tangguh untuk kebutuhan logistik dan manufaktur umum.",
+    specs: [
+      { label: "Capacity", value: "3.0 Tons" },
+      { label: "Engine", value: "Xinchai / Yanmar" },
+      { label: "Lift Height", value: "3,000 mm" },
+      { label: "Transmission", value: "Powershift" },
+    ],
+  },
+  {
+    id: "liugong-b160c",
+    name: "Liu Gong B160C",
+    brandId: "liu-gong",
+    category: "Bulldozer",
+    image:
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80",
+    description:
+      "Bulldozer kelas menengah yang tangguh untuk penataan lahan dan konstruksi infrastruktur.",
+    specs: [
+      { label: "Brand", value: "Liu Gong" },
+      { label: "Operating Weight", value: "17,000 kg" },
+      { label: "Engine Power", value: "120 kW (160 hp)" },
+      { label: "Blade Type", value: "Straight Tilt" },
     ],
   },
   // --- ZOOMLION SERIES ---
@@ -818,6 +1026,38 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
       { label: "Brand", value: "Zoomlion" },
       { label: "Max Capacity", value: "25 Tons" },
       { label: "Boom Length", value: "34 Meters" },
+    ],
+  },
+  {
+    id: "zoomlion-zat1500",
+    name: "Zoomlion ZAT1500",
+    brandId: "zoomlion",
+    category: "All Terrain Crane",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+    description:
+      "All-terrain crane berperforma tinggi dengan 7-section boom untuk jangkauan vertikal ekstrem dan mobilitas tinggi.",
+    specs: [
+      { label: "Brand", value: "Zoomlion" },
+      { label: "Max Capacity", value: "150 Tons" },
+      { label: "Boom Length", value: "72 Meters" },
+      { label: "Drive", value: "10 x 8 x 10" },
+    ],
+  },
+  {
+    id: "zoomlion-quy260",
+    name: "Zoomlion QUY260",
+    brandId: "zoomlion",
+    category: "Crawler Crane",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=1600&q=80",
+    description:
+      "Heavy duty crawler crane yang dirancang khusus untuk instalasi energi angin dan struktur baja berat pada proyek skala besar.",
+    specs: [
+      { label: "Brand", value: "Zoomlion" },
+      { label: "Max Capacity", value: "260 Tons" },
+      { label: "Main Boom", value: "95 Meters" },
+      { label: "Engine", value: "Cummins QSL9" },
     ],
   },
   {
@@ -896,112 +1136,108 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
   },
 ];
 
-export interface ProductItem {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  image: string;
-  features: string[];
-  application: string;
-}
-
 export const PRODUCTS_DATA: ProductItem[] = [
   {
-    id: "ground-mounted",
-    name: "Ground Mounted Solar Power",
-    slug: "ground-mounted",
+    id: "forklift-solutions",
+    name: "Industrial Forklift Solutions",
+    slug: "forklift-solutions",
     description:
-      "Large-scale solar power systems installed on the ground, designed for high capacity to supply energy to the national grid or industrial areas.",
+      "Rangkaian lengkap forklift diesel dan elektrik kelas dunia untuk efisiensi logistik tinggi di berbagai sektor industri.",
     image:
-      "https://images.unsplash.com/photo-1508515053963-70c7cc39dfb5?w=800&q=80",
+      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
     features: [
-      "High Scalability",
-      "Tilt Angle Optimization",
-      "Corrosion-Resistant Structure",
+      "Certified Operators (SIO)",
+      "Preventive Maintenance 24/7",
+      "Genuine Spare Parts Supply",
     ],
-    application: "Utilities, Industrial Areas, Open Land",
+    application: "Warehouses, Factories, Logistics Hubs",
   },
   {
-    id: "industrial-rooftop",
-    name: "Industrial Rooftop Solar Power",
-    slug: "industrial-rooftop",
+    id: "heavy-lifting-crane",
+    name: "Heavy Lifting & Crane Services",
+    slug: "heavy-lifting-crane",
     description:
-      "Solar energy solutions for factory and warehouse roofs, helping companies reduce operational costs and meet sustainability targets (ESG).",
+      "Solusi pengangkatan beban berat menggunakan crawler dan truck crane dengan kapasitas hingga 500 ton untuk proyek konstruksi dan infrastruktur.",
     image:
-      "https://images.unsplash.com/photo-1594818379496-da1e345b0ded?w=800&q=80",
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
     features: [
-      "Electricity Bill Savings",
-      "Real-time Monitoring",
-      "Zero Export System",
+      "Advanced Rigging Plans",
+      "High Safety Standards (K3)",
+      "Versatile Fleet Selection",
     ],
-    application: "Factories, Warehouses, Commercial Buildings",
+    application: "Infrastructure, Mining, Ports, Oil & Gas",
   },
   {
-    id: "residential-rooftop",
-    name: "Residential Rooftop Solar Power",
-    slug: "residential-rooftop",
+    id: "earthmoving-machinery",
+    name: "Earthmoving Machinery",
+    slug: "earthmoving-machinery",
     description:
-      "Premium solar panel systems for residences, empowering households to be energy independent with aesthetic installations.",
+      "Excavator dan bulldozer tangguh untuk pekerjaan persiapan lahan, penggalian, dan pemindahan tanah dalam skala besar.",
     image:
-      "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=80",
+      "https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80",
     features: [
-      "User Friendly",
-      "Smart App Integration",
-      "25-Year Performance Warranty",
+      "Fuel-Efficient Engines",
+      "Heavy Duty Buckets",
+      "Real-time GPS Tracking",
     ],
-    application: "Residences, Villas, Shop Houses",
+    application: "Land Clearing, Mining Operations, Road Construction",
   },
   {
-    id: "solar-street-lighting",
-    name: "Solar Street Lighting",
-    slug: "solar-street-lighting",
+    id: "warehouse-automation",
+    name: "Li-Ion Warehouse Automation",
+    slug: "warehouse-automation",
     description:
-      "Automatic solar-powered public street lighting that requires no grid cabling, highly efficient for urban and rural areas.",
+      "Unit warehouse elektrik dengan teknologi Lithium-Ion terbaru dari EP Equipment untuk operasional gudang yang bersih dan efisien.",
     image:
-      "https://images.unsplash.com/photo-1516934024742-b461fba47600?w=800&q=80",
-    features: ["Automatic On/Off", "LiFePO4 Battery", "Fast Installation"],
-    application: "Highways, Parks, Parking Areas",
-  },
-  {
-    id: "solar-telecom",
-    name: "Solar Power for Telecommunication",
-    slug: "solar-telecom",
-    description:
-      "Standalone power supply systems for telecommunication towers (BTS) in remote locations, ensuring 24/7 connectivity without relying on fuel.",
-    image:
-      "https://images.unsplash.com/photo-1520333789090-1afc82db536a?w=800&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
     features: [
-      "Hybrid System Ready",
-      "High Reliability",
-      "Remote Site Optimized",
+      "Fast Opportunity Charging",
+      "Maintenance-Free Battery",
+      "Compact Narrow-Aisle Design",
     ],
-    application: "BTS Towers, Repeaters, Remote Sensors",
+    application: "FMCG, Cold Storage, E-commerce Hubs",
   },
   {
-    id: "mini-hydro",
-    name: "Mini Hydro Power Plant",
-    slug: "mini-hydro",
+    id: "port-container-handling",
+    name: "Port & Container Handling",
+    slug: "port-container-handling",
     description:
-      "Small-scale hydroelectric power plants that utilize river flow to generate stable clean energy continuously.",
+      "Peralatan khusus untuk manajemen terminal peti kemas, termasuk reach stacker dan heavy forklift untuk arus logistik pelabuhan yang lancar.",
     image:
-      "https://images.unsplash.com/photo-1518349619113-03114f06ac3a?w=800&q=80",
-    features: ["Base Load Energy", "Eco-Friendly", "Low Operational Costs"],
-    application: "Rivers, Remote Villages",
-  },
-  {
-    id: "floating-solar",
-    name: "Solar Floating Power Plant",
-    slug: "floating-solar",
-    description:
-      "Floating solar PV innovation on water surfaces (reservoirs or lakes), reducing water evaporation and increasing panel cooling efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1559302995-f09fa9795646?w=800&q=80",
+      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
     features: [
-      "Temperature Efficiency",
-      "Land Scarcity Solution",
-      "Water Conservation",
+      "High Load Stability",
+      "Intelligent Control Systems",
+      "24/7 On-site Technical Support",
     ],
-    application: "Reservoirs, Lakes, Dams",
+    application: "Port Terminals, Inland Depots, ICD",
+  },
+  {
+    id: "road-construction-fleet",
+    name: "Road & Infrastructure Fleet",
+    slug: "road-construction-fleet",
+    description:
+      "Lini compactor, rollers, dan grader berkualitas untuk memastikan pemadatan dan perataan jalan yang presisi sesuai standar teknik.",
+    image: "/images/heavyduty/bomac.jpg",
+    features: [
+      "High Compaction Force",
+      "Operator Comfort Focused",
+      "Durable Drum Systems",
+    ],
+    application: "Highways, Runways, Industrial Estates",
+  },
+  {
+    id: "mining-quarry-solutions",
+    name: "Mining & Quarry Solutions",
+    slug: "mining-quarry-solutions",
+    description:
+      "Alat berat khusus pertambangan dari Liu Gong dan Zoomlion yang dirancang untuk durabilitas ekstrem di medan terbuka.",
+    image: "/images/liugong/8128h.jpg",
+    features: [
+      "Reinforced Chassis",
+      "Extreme Climate Durability",
+      "Optimized Payload Capacity",
+    ],
+    application: "Open-pit Mines, Coal Mining, Quarries",
   },
 ];
