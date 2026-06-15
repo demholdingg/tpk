@@ -43,9 +43,10 @@ export default function AboutPage() {
             Pesona Kahayan
           </h1>
           <p className="text-gray-600 text-base leading-relaxed max-w-[600px]">
-            Since 2009, we have been building Indonesia's infrastructure — one
-            project, one tower, one power plant at a time. From Jakarta to
-            Papua, our engineers show up and deliver.
+            Since 2009 part of DEM Holdings / Duta Energi Muliatama, we have
+            been building Indonesia's infrastructure — one project, one tower,
+            one power plant at a time. From Jakarta to Papua, our engineers show
+            up and deliver.
           </p>
         </div>
       </div>

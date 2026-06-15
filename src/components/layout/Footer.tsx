@@ -25,12 +25,12 @@ export function Footer() {
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="relative w-10 h-10">
+            <div className="relative w-14 h-14">
               <Image
                 src="/images/logoteknika.png"
                 alt="Teknika Pesona Kahayan Logo"
                 fill
-                sizes="40px"
+                sizes="56px"
                 className="object-contain"
               />
             </div>

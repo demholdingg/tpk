@@ -55,12 +55,12 @@ export function Navbar() {
         href="/"
         className="flex items-center gap-2.5 mr-auto group transition-all"
       >
-        <div className="relative w-8 h-8 md:w-9 md:h-9">
+        <div className="relative w-10 h-10 md:w-12 md:h-12">
           <Image
             src="/images/logoteknika.png"
             alt="Teknika Pesona Kahayan Logo"
             fill
-            sizes="(max-width: 768px) 32px, 36px"
+            sizes="(max-width: 768px) 40px, 48px"
             priority
             className="object-contain"
           />
