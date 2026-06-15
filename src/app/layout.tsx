@@ -30,6 +30,8 @@ export const metadata: Metadata = {
   description:
     "Teknika Pesona Kahayan (TPK) is Indonesia's specialist in Material Handling and Heavy Equipment solutions. We provide premium rental services for forklifts, cranes, and port equipment with 24/7 maintenance support and certified operators.",
   keywords: [
+    "Teknika Pesona Kahayan",
+    "TPK",
     "material handling equipment",
     "heavy equipment",
     "forklift rental indonesia",
@@ -46,10 +48,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.pesonakahayan.co.id",
+    url: "https://www.pesonakahayan.co.id/", // Ensure trailing slash for consistency
     siteName: "Teknika Pesona Kahayan",
     title: "Teknika Pesona Kahayan – Excellence in Engineering",
     description: "Integrated Engineering Solutions for the Future",
+    images: [
+      {
+        url: "https://www.pesonakahayan.co.id/images/og-image.jpg", // Replace with your actual OG image
+        width: 1200,
+        height: 630,
+        alt: "Teknika Pesona Kahayan - Heavy Equipment Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Teknika Pesona Kahayan – Excellence in Engineering",
+    description: "Integrated Engineering Solutions for the Future",
+    images: ["https://www.pesonakahayan.co.id/images/og-image.jpg"], // Replace with your actual Twitter image
   },
 };
 
@@ -67,6 +83,38 @@ export default function RootLayout({
       <body className="bg-white text-gray-900">
         <SplashScreen />
         <Navbar />
+        {/* JSON-LD for Organization and Website */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.pesonakahayan.co.id/#organization",
+                  name: "Teknika Pesona Kahayan",
+                  url: "https://www.pesonakahayan.co.id/",
+                  logo: "https://www.pesonakahayan.co.id/images/logoteknika.png", // Replace with your actual logo URL
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+62-812-3456-7890", // Replace with your actual phone number
+                    contactType: "customer service",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.pesonakahayan.co.id/#website",
+                  url: "https://www.pesonakahayan.co.id/",
+                  name: "Teknika Pesona Kahayan",
+                  publisher: {
+                    "@id": "https://www.pesonakahayan.co.id/#organization",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <main>{children}</main>
         <WhatsAppButton />
         <Footer />

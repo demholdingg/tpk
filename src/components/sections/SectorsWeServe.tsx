@@ -24,9 +24,9 @@ export function SectorsWeServe() {
             </span>
           </SectionTitle>
           <p className="mt-6 text-gray-700 text-lg leading-relaxed max-w-xl">
-            Kami menyediakan solusi alat berat yang dikhususkan untuk tantangan
-            spesifik di setiap lini industri, memastikan produktivitas maksimal
-            tanpa kompromi pada keselamatan.
+            We provide heavy equipment solutions specialized for specific
+            challenges in every industry line, ensuring maximum productivity
+            without compromising safety.
           </p>
         </div>
 

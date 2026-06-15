@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Award, Globe, Zap } from "lucide-react";
-import { MILESTONES } from "@/data";
+import { Award, Globe, Zap } from "lucide-react"; // Removed Info as it was not used
+import { MILESTONES, PARTNER_BRANDS } from "@/data"; // Added PARTNER_BRANDS
 import { MapSection } from "@/components/sections/MapSection";
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* ── Hero ── */}
       <div className="relative min-h-[60vh] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=1600&q=80"
+          src="/images/zoomlion/zoomlion-zat1500.webp"
           alt="Engineering team"
           fill
           priority
@@ -99,7 +99,7 @@ export default function AboutPage() {
         <div className="hidden lg:grid grid-cols-2 gap-4 h-[500px]">
           <div className="relative rounded-lg overflow-hidden row-span-2">
             <Image
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=75"
+              src="/images/zoomlion/zoomlion-ztc250.webp"
               alt="Engineering"
               fill
               className="object-cover brightness-90 saturate-80"
@@ -108,7 +108,7 @@ export default function AboutPage() {
           </div>
           <div className="relative rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=75"
+              src="/images/liugong/liugong-b160c.jpg"
               alt="Equipment"
               fill
               className="object-cover brightness-90 saturate-80"
@@ -117,7 +117,7 @@ export default function AboutPage() {
           </div>
           <div className="relative rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&q=75"
+              src="/images/zoomlion/zoomlion-zat1500.webp"
               alt="Network"
               fill
               className="object-cover brightness-90 saturate-80"
@@ -238,19 +238,18 @@ export default function AboutPage() {
           Trusted by leading organizations
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
-          {[
-            "PT PLN (Persero)",
-            "PT Telkomsel",
-            "PT Indosat Ooredoo",
-            "PT XL Axiata",
-            "PT Pelindo",
-            "PT Berau Coal",
-          ].map((name) => (
+          {PARTNER_BRANDS.map((brand) => (
             <div
-              key={name}
-              className="font-display text-lg font-bold text-gray-400 hover:text-gray-900 transition-colors tracking-wide uppercase"
+              key={brand.id}
+              className="relative h-12 w-32 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
             >
-              {name}
+              <Image
+                src={brand.logo}
+                alt={brand.name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100px, 128px"
+              />
             </div>
           ))}
         </div>

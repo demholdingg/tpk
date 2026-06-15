@@ -5,7 +5,7 @@ import { MapPin, Navigation, Phone, Mail, Clock } from "lucide-react";
 
 export function MapSection() {
   const googleMapsUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.855325603772!2d106.83002627586827!3d-6.282747193706076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f2104533924f%3A0x7d06e9871578e906!2s18%20Office%20Park!5e0!3m2!1sen!2sid!4v1715000000000!5m2!1sen!2sid";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.657512411516!2d106.9723233!3d-6.1765873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c76022e3745%3A0x868165905d449339!2sJl.+Sultan+Agung%2C+Medan+Satria%2C+Kota+Bks%2C+Jawa+Barat!5e0!3m2!1sen!2sid!4v1715000000000!5m2!1sen!2sid";
 
   return (
     <section className="py-24 bg-white px-6 md:px-12 overflow-hidden">
@@ -40,9 +40,9 @@ export function MapSection() {
                     Head Office
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    18 Office Park Lt. 25 Unit A2, <br />
-                    Jl. Tb. Simatupang No.18 Kebagusan, <br />
-                    Jakarta Selatan, DKI Jakarta
+                    Jl. Sultan Agung pondok ungu No.Raya, <br />
+                    RT.001/RW.006, Medan Satria, <br />
+                    Bekasi, West Java 17132
                   </p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export function MapSection() {
 
               <div className="pt-6">
                 <a
-                  href="https://maps.google.com"
+                  href="https://www.google.com/maps/search/?api=1&query=Jl.+Sultan+Agung+Medan+Satria+Bekasi"
                   target="_blank"
                   className="inline-flex items-center gap-3 bg-orange text-black font-bold py-4 px-8 rounded text-[12px] uppercase hover:bg-orange/90 transition-all hover:translate-x-1"
                 >

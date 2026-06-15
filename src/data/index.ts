@@ -84,6 +84,7 @@ export const NAV_LINKS: (NavLink & { children?: NavLink[] })[] = [
     children: [{ label: "Company Profile", href: "/about" }],
   },
   { label: "Fleet & Equipment", href: "/services" },
+  { label: "Products", href: "/products" },
   { label: "Project Experience", href: "/portfolio" },
   { label: "Contact", href: "/contact" },
 ];
@@ -95,7 +96,7 @@ export const HOME_HERO_SLIDES: HeroSlide[] = [
     title: "Material Handling",
     subtitle: "Plum Mewah PM-5000",
     description:
-      "Solusi terpercaya untuk kebutuhan forklift dan pergudangan dengan unit modern dan operator bersertifikat.",
+      "Reliable solutions for forklift and warehousing needs with modern units and certified operators.",
     image: "/images/plummewah/pm-5000.png",
   },
   {
@@ -104,20 +105,9 @@ export const HOME_HERO_SLIDES: HeroSlide[] = [
     title: "Heavy Lifting",
     subtitle: "Solutions",
     description:
-      "Dukungan armada crane kapasitas besar untuk proyek infrastruktur, pertambangan, dan operasional pelabuhan.",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+      "High-capacity crane fleet support for infrastructure, mining, and port operations.",
+    image: "/images/liugong/liugong-b160c.jpg",
     video: "/video/crane.mp4",
-  },
-  {
-    id: 3,
-    tag: "Technical Support",
-    title: "Industrial",
-    subtitle: "Maintenance",
-    description:
-      "Dukungan teknis 24/7 dan ketersediaan suku cadang asli untuk memastikan kesiapan armada alat berat Anda setiap saat.",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
   },
 ];
 
@@ -128,18 +118,25 @@ export const SERVICES: Service[] = [
     name: "Heavy Duty Equipment Rental",
     description:
       "Premium rental services for material handling machinery and construction equipment with certified operators.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75",
+    image: "/images/plummewah/pm-5000.png",
+    href: "/services/heavy-equipment",
+  },
+  {
+    id: "lifting-solutions",
+    tag: "Specialized",
+    name: "Heavy Lifting & Rigging Solutions",
+    description:
+      "Expert management of high-capacity crane operations and complex rigging for major infrastructure and mining sectors.",
+    image: "/images/zoomlion/zoomlion-quy260.png",
     href: "/services/heavy-equipment",
   },
   {
     id: "maintenance-services",
-    tag: "Lifecycle",
-    name: "Equipment Maintenance & Repair",
+    tag: "Reliability",
+    name: "Fleet Maintenance & Support",
     description:
-      "Specialized maintenance for heavy machinery to ensure maximum uptime and operational safety.",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=75",
+      "Comprehensive technical support and preventive maintenance to ensure maximum uptime and safety for your heavy machinery fleet.",
+    image: "/images/liugong/LiuGong922E.webp",
     href: "/services/maintenance-services",
   },
 ];
@@ -152,20 +149,19 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     tagline: "Heavy Duty Equipment & Rent",
     description:
       "We supply, rent, and operate a comprehensive fleet of heavy equipment and material handling machinery. With a team of certified operators and a 24/7 maintenance unit, we ensure your operations run without interruption, no matter the scale or location.",
-    heroImage:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80",
+    heroImage: "/images/heli/CPQ(Y)D15-20.webp",
     features: [
       {
         icon: "🚜",
         title: "Authorized Brand Partners",
         description:
-          "Kami adalah mitra resmi untuk Plum Mewah (Premium), Heli, EP Equipment (Li-ion), Liu Gong, dan Zoomlion.",
+          "We are official partners for Plum Mewah (Premium), Heli, EP Equipment (Li-ion), Liu Gong, and Zoomlion.",
       },
       {
         icon: "🏗️",
         title: "Specialized Unit Types",
         description:
-          "Tersedia berbagai jenis unit mulai dari Electric Forklift, Reach Truck, Excavator, hingga Crawler Crane.",
+          "Various unit types available ranging from Electric Forklifts, Reach Trucks, Excavators, to Crawler Cranes.",
       },
       {
         icon: "🔩",
@@ -193,22 +189,19 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
         name: "Forklift Rental",
         description:
           "Short and long-term forklift rental with or without operator. All units undergo monthly safety inspections.",
-        image:
-          "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=75",
+        image: "/images/ep-equipment/EPF4.webp",
       },
       {
         name: "Crane Services",
         description:
           "Mobile and crawler crane services for heavy lifts in industrial, port, and construction environments.",
-        image:
-          "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=500&q=75",
+        image: "/images/zoomlion/zoomlion-quy150.webp",
       },
       {
         name: "Logistics & Rigging",
         description:
           "Heavy haul transportation, rigging, and load out services for oversized industrial equipment.",
-        image:
-          "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&q=75",
+        image: "/images/zoomlion/zoomlion-ztc250.webp",
       },
     ],
     relatedSlugs: ["maintenance-services"],
@@ -220,11 +213,10 @@ export const ALL_PROJECTS: ProjectFull[] = [
     id: "surabaya-port-forklift",
     category: "Equipment",
     name: "Surabaya Port Fleet",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75",
+    image: "/images/heli/CPQ(Y)D15-20.webp",
     href: "/portfolio/surabaya-port-forklift",
     year: "2023",
-    location: "Surabaya, Jawa Timur",
+    location: "Surabaya, East Java",
     client: "PT Pelindo III",
     description:
       "Supply and long-term operation of 25-unit forklift fleet (3–10 ton) with certified operators for port container handling operations.",
@@ -234,11 +226,10 @@ export const ALL_PROJECTS: ProjectFull[] = [
     id: "crane-mining-kaltim",
     category: "Equipment",
     name: "Kaltim Mining Crane Ops",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=75",
+    image: "/images/liugong/liugong-856h.jpg",
     href: "/portfolio/crane-mining-kaltim",
     year: "2024",
-    location: "Kutai Kartanegara, Kalimantan Timur",
+    location: "Kutai Kartanegara, East Kalimantan",
     client: "PT Berau Coal",
     description:
       "Provision of 3 units 250-ton crawler cranes with certified riggers for heavy module installation at open-pit coal mining facility.",
@@ -286,7 +277,7 @@ export const WHY_FEATURES = [
     icon: "🏆",
     title: "Licensed Experts",
     description:
-      "Didukung oleh mekanik dan operator bersertifikat SIO/K3 dengan jam terbang tinggi di berbagai sektor industri.",
+      "Supported by SIO/K3 certified mechanics and operators with high flying hours across various industrial sectors.",
   },
   {
     icon: "⚙️",
@@ -299,9 +290,9 @@ export const WHY_FEATURES = [
 export const SECTORS: Sector[] = [
   {
     id: "mining",
-    title: "Pertambangan",
+    title: "Mining",
     description:
-      "Solusi armada berat untuk operasional tambang terbuka (open-pit) yang menuntut durabilitas tinggi dalam kondisi ekstrem.",
+      "Heavy fleet solutions for open-pit mining operations demanding high durability in extreme conditions.",
     image: "/images/liugong/8128h.jpg",
     icon: "⛏️",
     href: "/sectors/mining",
@@ -309,44 +300,40 @@ export const SECTORS: Sector[] = [
   },
   {
     id: "construction",
-    title: "Konstruksi & Infrastruktur",
+    title: "Construction & Infrastructure",
     description:
-      "Dukungan crane dan alat berat untuk pembangunan gedung bertingkat, jalan tol, dan proyek strategis nasional.",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=800&q=80",
+      "Crane and heavy equipment support for high-rise buildings, toll roads, and national strategic projects.",
+    image: "/images/zoomlion/qtz160.jpg",
     icon: "🏗️",
     href: "/sectors/construction",
     relatedCategories: ["Crane", "Excavator", "Bulldozer", "Roller"],
   },
   {
     id: "logistics",
-    title: "Logistik & Pelabuhan",
+    title: "Logistics & Ports",
     description:
-      "Optimasi bongkar muat dan efisiensi pergudangan dengan lini forklift dan reach truck kelas dunia.",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+      "Loading-unloading optimization and warehouse efficiency with world-class forklift and reach truck lines.",
+    image: "/images/ep/ep-equipment-electric-forklift.jpg",
     icon: "📦",
     href: "/sectors/logistics",
     relatedCategories: ["Forklift", "Warehouse", "Pallet"],
   },
   {
     id: "manufacturing",
-    title: "Manufaktur & FMCG",
+    title: "Manufacturing & FMCG",
     description:
-      "Dukungan operasional pabrik dengan forklift elektrik ramah lingkungan untuk penanganan material yang presisi dan higienis.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      "Factory operational support with eco-friendly electric forklifts for precise and hygienic material handling.",
+    image: "/images/heli/heli-cpcd30.jpg",
     icon: "🏭",
     href: "/sectors/manufacturing",
     relatedCategories: ["Electric Forklift", "Warehouse", "Pallet"],
   },
   {
     id: "agriculture",
-    title: "Perkebunan & Kehutanan",
+    title: "Agriculture & Forestry",
     description:
-      "Alat berat tangguh untuk pembukaan lahan, perawatan jalan akses, dan efisiensi logistik hasil perkebunan.",
-    image:
-      "https://images.unsplash.com/photo-1594488310397-29307c87c08a?w=800&q=80",
+      "Robust heavy machinery for land clearing, access road maintenance, and plantation logistics efficiency.",
+    image: "/images/plummewah/pm-1500-mini-dumper.png",
     icon: "🌴",
     href: "/sectors/agriculture",
     relatedCategories: ["Excavator", "Bulldozer"],
@@ -387,31 +374,31 @@ export const PARTNER_BRANDS: Brand[] = [
   {
     id: "plum-mewah",
     name: "Plum Mewah",
-    logo: "/logos/plum-mewah.png",
+    logo: "/images/logos/plum-mewah.png",
     category: "Premium Material Handling",
   },
   {
     id: "heli",
     name: "Heli",
-    logo: "/logos/heli.png",
+    logo: "/images/logos/heli.png",
     category: "Forklift Specialist",
   },
   {
     id: "ep-equipment",
     name: "EP Equipment",
-    logo: "/logos/ep.png",
+    logo: "/images/logos/ep.png",
     category: "Li-Ion Warehouse Tech",
   },
   {
     id: "liu-gong",
     name: "Liu Gong",
-    logo: "/logos/liugong.png",
+    logo: "/images/logos/liugong.png",
     category: "Heavy Construction",
   },
   {
     id: "zoomlion",
     name: "Zoomlion",
-    logo: "/logos/zoomlion.png",
+    logo: "/images/logos/zoomlion.png",
     category: "Cranes & Concrete",
   },
 ];
@@ -425,7 +412,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "High-End Forklift",
     image: "/images/plummewah/pm-5000.png",
     description:
-      "Unit forklift premium dengan fokus pada durabilitas tinggi dan efisiensi bahan bakar untuk operasional 24/7.",
+      "Premium forklift unit focusing on high durability and fuel efficiency for 24/7 operations.",
     specs: [
       { label: "Brand", value: "Plum Mewah" },
       { label: "Capacity", value: "5.0 Tons" },
@@ -440,7 +427,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Mini Dumper",
     image: "/images/plummewah/pm-1500.png",
     description:
-      "Mini dumper tipe tipper yang ringkas dan efisien, ideal untuk proyek konstruksi skala kecil dan area terbatas.",
+      "Compact and efficient tipper-type mini dumper, ideal for small-scale construction projects and confined areas.",
     specs: [
       { label: "Engine", value: "KOOP 1100" },
       { label: "Engine Power", value: "9.5 KW (13 hp)" },
@@ -463,7 +450,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper",
     image: "/images/plummewah/pd-5000tag.png",
     description:
-      "Crawler dumper 5 ton dengan performa tinggi, cocok untuk medan berat dan pengangkutan material dalam jumlah besar.",
+      "High-performance 5-ton crawler dumper, suitable for heavy terrain and large-scale material transport.",
     specs: [
       { label: "Engine", value: "Diesel engine, Yunnei 490" },
       { label: "Engine Power", value: "50 hp" },
@@ -486,7 +473,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper (High Lift)",
     image: "/images/plummewah/pm-5000ta.png",
     description:
-      "Crawler dumper 5 ton dengan kemampuan angkat tinggi hingga 2.5 meter, ideal untuk pemindahan material ke tempat yang lebih tinggi.",
+      "5-ton crawler dumper with high-lift capability up to 2.5 meters, ideal for moving materials to elevated locations.",
     specs: [
       { label: "Engine", value: "Diesel engine, Yunnei 490" },
       { label: "Engine Power", value: "50 hp" },
@@ -511,7 +498,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper (High Lift)",
     image: "/images/plummewah/pm-3500ta.png",
     description:
-      "Crawler dumper 3.5 ton dengan fitur angkat tinggi 2.5 meter, menawarkan fleksibilitas untuk berbagai kebutuhan proyek.",
+      "3.5-ton crawler dumper with 2.5-meter high-lift feature, offering flexibility for various project needs.",
     specs: [
       { label: "Engine", value: "Diesel engine, Changfa 1130" },
       { label: "Engine Power", value: "30 hp" },
@@ -536,7 +523,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper",
     image: "/images/plummewah/pm-3500.png",
     description:
-      "Crawler dumper 3.5 ton tipe tipper yang tangguh, dirancang untuk efisiensi pengangkutan material di berbagai kondisi medan.",
+      "Robust 3.5-ton tipper-type crawler dumper, designed for efficient material transport in various terrain conditions.",
     specs: [
       { label: "Engine", value: "Diesel engine, Changfa 1130" },
       { label: "Engine Power", value: "30 hp" },
@@ -559,10 +546,10 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper (Scissor Lift)",
     image: "/images/plummewah/pd-5000tag.png",
     description:
-      "Crawler dumper dengan scissor lift dan crane grab, menawarkan solusi multifungsi untuk pengangkutan dan penanganan material.",
+      "Crawler dumper with scissor lift and crane grab, offering a multifunctional solution for material transport and handling.",
     specs: [
       {
-        label: "Fitur Tambahan",
+        label: "Additional Features",
         value: "New support roller-Forged type, Parking brake",
       },
       { label: "Engine", value: "Diesel engine" },
@@ -594,10 +581,10 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper (Scissor Lift)",
     image: "/images/plummewah/pd-5000ta.png",
     description:
-      "Crawler dumper 5 ton dengan scissor lift, dilengkapi fitur terbaru untuk efisiensi dan keamanan operasional yang lebih baik.",
+      "5-ton crawler dumper with scissor lift, equipped with the latest features for better operational efficiency and safety.",
     specs: [
       {
-        label: "Fitur Terbaru",
+        label: "Latest Features",
         value:
           "New support roller-Forged type, Heightened cargo box, Parking Brake",
       },
@@ -624,10 +611,10 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Crawler Dumper (Scissor Lift)",
     image: "/images/plummewah/pd-3500ta.png",
     description:
-      "Crawler dumper 3.5 ton dengan scissor lift, diperbarui dengan fitur-fitur baru untuk meningkatkan kinerja dan keandalan.",
+      "3.5-ton crawler dumper with scissor lift, updated with new features to improve performance and reliability.",
     specs: [
       {
-        label: "Fitur Terbaru",
+        label: "Latest Features",
         value:
           "New support roller-Forged type, Heightened cargo box, Parking Brake",
       },
@@ -654,7 +641,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Electric Forklift",
     image: "/images/plummewah/pm-3500.png",
     description:
-      "Forklift elektrik premium dengan sistem kontrol cerdas untuk penggunaan indoor yang intensif.",
+      "Premium electric forklift with intelligent control system for intensive indoor use.",
     specs: [
       { label: "Brand", value: "Plum Mewah" },
       { label: "Capacity", value: "3.0 Tons" },
@@ -668,10 +655,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CPCD30",
     brandId: "heli",
     category: "Forklift",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
+    image: "/images/heli/cpd30.jpg",
     description:
-      "Forklift sejuta umat yang handal, mudah dalam perawatan, dan memiliki suku cadang yang melimpah.",
+      "The industry standard reliable forklift, easy to maintain with widely available spare parts.",
     specs: [
       { label: "Brand", value: "Heli" },
       { label: "Capacity", value: "3.0 Tons" },
@@ -683,10 +669,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CPCD35",
     brandId: "heli",
     category: "Diesel Forklift",
-    image:
-      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+    image: "/images/heli/Cpcd35.webp",
     description:
-      "Forklift diesel kapasitas 3.5 ton dengan mesin bertenaga untuk penggunaan outdoor yang berat.",
+      "3.5-ton capacity diesel forklift with powerful engine for heavy outdoor use.",
     specs: [
       { label: "Brand", value: "Heli" },
       { label: "Capacity", value: "3.5 Tons" },
@@ -699,10 +684,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CPD25 Lithium-Ion",
     brandId: "heli",
     category: "Electric Forklift",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    image: "/images/heli/CPD25.jpg",
     description:
-      "Forklift elektrik dengan teknologi baterai Lithium-Ion untuk efisiensi tinggi dan bebas perawatan.",
+      "Electric forklift with Lithium-Ion battery technology for high efficiency and maintenance-free operation.",
     specs: [
       { label: "Brand", value: "Heli" },
       { label: "Capacity", value: "2.5 Tons" },
@@ -715,10 +699,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CQD16 Reach Truck",
     brandId: "heli",
     category: "Warehouse Equipment",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
+    image: "/images/heli/CPQ(Y)D15-20.webp",
     description:
-      "Solusi optimal untuk pergudangan high-rack dengan radius putar yang sangat kecil.",
+      "Optimal solution for high-rack warehousing with a very small turning radius.",
     specs: [
       { label: "Brand", value: "Heli" },
       { label: "Lift Height", value: "8.5 Meters" },
@@ -731,10 +714,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP Equipment EFL252",
     brandId: "ep-equipment",
     category: "Electric Forklift",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    image: "/images/ep-equipment/ep-efl252.webp",
     description:
-      "Inovasi Li-ion tercanggih yang menggabungkan kekuatan forklift diesel dengan efisiensi tenaga listrik.",
+      "Advanced Li-ion innovation combining the power of a diesel forklift with electric efficiency.",
     specs: [
       { label: "Brand", value: "EP Equipment" },
       { label: "Battery", value: "80V/280Ah Li-ion" },
@@ -746,10 +728,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli H3C Series CPQD15-20",
     brandId: "heli",
     category: "Tire Forklift",
-    image:
-      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+    image: "/images/heli/heli-h3c-cpqd1520.webp",
     description:
-      "Forklift seri H3C yang lincah dengan mesin Kubota, dirancang untuk performa optimal di area logistik dengan ban tunggal.",
+      "Agile H3C series forklift with Kubota engine, designed for optimal performance in logistics areas with single tires.",
     specs: [
       { label: "Rated Capacity", value: "3,000 - 4,000 lbs" },
       { label: "Engine", value: "Kubota WG2503 (Gas/LPG)" },
@@ -762,10 +743,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli H3C Series CPQD40-50",
     brandId: "heli",
     category: "Tire Forklift",
-    image:
-      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    image: "/images/heli/CPYD40-50C.webp",
     description:
-      "Heavy duty forklift dengan kapasitas hingga 5 ton, dilengkapi transmisi cerdas dan sistem suspensi peredam getaran.",
+      "Heavy duty forklift with capacity up to 5 tons, equipped with intelligent transmission and vibration damping suspension system.",
     specs: [
       { label: "Load Capacity", value: "4,000 - 5,000 kg" },
       { label: "Fuel Type", value: "Petrol / LPG / Dual-Fuel" },
@@ -778,10 +758,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CPD30-32C",
     brandId: "heli",
     category: "Electric Forklift",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    image: "/images/heli/CPD30-32C.jpg",
     description:
-      "Forklift elektrik standar dengan kapasitas angkat berat, dilengkapi rem cakram oli ganda dan perlindungan overload hidrolik.",
+      "Standard electric forklift with heavy lifting capacity, equipped with dual oil disc brakes and hydraulic overload protection.",
     specs: [
       { label: "Capacity", value: "3.0 - 3.2 Tons" },
       { label: "Power Source", value: "Electric (Lead-Acid)" },
@@ -794,10 +773,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli G Series QYCD60-80",
     brandId: "heli",
     category: "Tow Tractor",
-    image:
-      "https://images.unsplash.com/photo-1516934024742-b461fba47600?w=1600&q=80",
+    image: "/images/heli/QYCD60-80.jpg",
     description:
-      "Tow tractor diesel performa tinggi untuk lingkungan berat seperti pelabuhan dan area pertambangan.",
+      "High-performance diesel tow tractor for heavy environments like ports and mining areas.",
     specs: [
       { label: "Drawbar Pull", value: "60 kN - 80 kN" },
       { label: "Power Output", value: "118 kW" },
@@ -810,10 +788,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CBD20J-B",
     brandId: "heli",
     category: "Electric Pallet Truck",
-    image:
-      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    image: "/images/heli/CBD20J-B.jpg",
     description:
-      "Pallet truck elektrik walkie yang efisien untuk operasional gudang, logistik, dan pemuatan kontainer.",
+      "Efficient electric walkie pallet truck for warehouse, logistics, and container loading operations.",
     specs: [
       { label: "Capacity", value: "2,000 kg" },
       { label: "Drive Type", value: "Walkie" },
@@ -826,10 +803,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Heli CBS15J",
     brandId: "heli",
     category: "Semi-Electric Stacker",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    image: "/images/heli/CBS15J.webp",
     description:
-      "Stacker semi-elektrik dengan penggerak manual dan angkat elektrik, ideal untuk penanganan material ringan di gudang.",
+      "Semi-electric stacker with manual drive and electric lift, ideal for light material handling in warehouses.",
     specs: [
       { label: "Capacity", value: "1,500 kg" },
       { label: "Lift Height", value: "1,600 - 3,500 mm" },
@@ -843,10 +819,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP Equipment EFL302",
     brandId: "ep-equipment",
     category: "Electric Forklift",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
+    image: "/images/ep-equipment/EFL302.webp",
     description:
-      "Forklift elektrik Li-Ion generasi terbaru yang dirancang untuk menggantikan unit diesel konvensional.",
+      "Next-generation Li-Ion electric forklift designed to replace conventional diesel units.",
     specs: [
       { label: "Brand", value: "EP Equipment" },
       { label: "Capacity", value: "3.0 Tons" },
@@ -859,10 +834,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP F4 Li-ion Pallet Truck",
     brandId: "ep-equipment",
     category: "Pallet Jack",
-    image:
-      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    image: "/images/ep-equipment/EPF4.webp",
     description:
-      "Pallet truck elektrik yang sangat lincah untuk bongkar muat di area sempit.",
+      "Highly agile electric pallet truck for loading and unloading in tight areas.",
     specs: [
       { label: "Brand", value: "EP Equipment" },
       { label: "Capacity", value: "1.5 Tons" },
@@ -874,10 +848,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP EPT20-15ET",
     brandId: "ep-equipment",
     category: "Electric Pallet Truck",
-    image:
-      "https://images.unsplash.com/photo-1580674271103-ca24214e66d2?w=1600&q=80",
+    image: "/images/ep-equipment/ept2015et.webp",
     description:
-      "Pallet truck elektrik yang sangat populer untuk aplikasi pergudangan dengan desain yang sangat kompak.",
+      "Very popular electric pallet truck for warehousing applications with a highly compact design.",
     specs: [
       { label: "Brand", value: "EP Equipment" },
       { label: "Capacity", value: "1.5 Tons" },
@@ -891,10 +864,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Liu Gong 922E",
     brandId: "liu-gong",
     category: "Excavator",
-    image:
-      "https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80",
+    image: "/images/liugong/LiuGong922E.webp",
     description:
-      "Excavator generasi terbaru dengan efisiensi hidrolik yang ditingkatkan untuk pekerjaan tanah berat.",
+      "Next-generation excavator with enhanced hydraulic efficiency for heavy earthmoving tasks.",
     specs: [
       { label: "Brand", value: "Liu Gong" },
       { label: "Operating Weight", value: "22,000 kg" },
@@ -906,10 +878,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP Equipment CPD20L2",
     brandId: "ep-equipment",
     category: "Electric Forklift",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
+    image: "/images/ep-equipment/cpd2012_1.png",
     description:
-      "Forklift elektrik dengan sasis Li-Ion terintegrasi untuk ruang kaki yang lebih luas dan efisiensi energi maksimal.",
+      "Electric forklift with integrated Li-Ion chassis for more legroom and maximum energy efficiency.",
     specs: [
       { label: "Capacity", value: "2.0 Tons" },
       { label: "Battery", value: "48V/360Ah Li-Ion" },
@@ -922,10 +893,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "EP Equipment ES12-12WA",
     brandId: "ep-equipment",
     category: "Electric Stacker",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
+    image: "/images/ep-equipment/ep-es12-12wa.png",
     description:
-      "Stacker elektrik walkie yang tangguh untuk penumpukan palet di lorong gudang yang sempit.",
+      "Robust electric walkie stacker for pallet stacking in narrow warehouse aisles.",
     specs: [
       { label: "Capacity", value: "1.2 Tons" },
       { label: "Lift Height", value: "3,000 mm" },
@@ -939,10 +909,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Liu Gong 856H",
     brandId: "liu-gong",
     category: "Wheel Loader",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=1600&q=80",
+    image: "/images/liugong/liugong-856h.jpg",
     description:
-      "Wheel loader handal dengan efisiensi bahan bakar optimal untuk operasional tambang dan kuari.",
+      "Reliable wheel loader with optimal fuel efficiency for mining and quarry operations.",
     specs: [
       { label: "Brand", value: "Liu Gong" },
       { label: "Bucket Capacity", value: "3.0 - 4.5 m³" },
@@ -957,7 +926,7 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     category: "Wheel Loader",
     image: "/images/liugong/8128h.jpg",
     description:
-      "Wheel loader raksasa untuk operasional pertambangan skala besar dengan durabilitas dan tenaga pendorong ekstrem.",
+      "Giant wheel loader for large-scale mining operations with extreme durability and pushing power.",
     specs: [
       { label: "Operating Weight", value: "51,000 kg" },
       { label: "Bucket Capacity", value: "7.0 m³" },
@@ -970,10 +939,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Liu Gong CLG2030H",
     brandId: "liu-gong",
     category: "Forklift",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80",
+    image: "/images/liugong/liugong-clg2030h.png",
     description:
-      "Forklift diesel seri H yang ekonomis namun tangguh untuk kebutuhan logistik dan manufaktur umum.",
+      "Economical yet robust H-series diesel forklift for logistics and general manufacturing needs.",
     specs: [
       { label: "Capacity", value: "3.0 Tons" },
       { label: "Engine", value: "Xinchai / Yanmar" },
@@ -986,10 +954,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Liu Gong B160C",
     brandId: "liu-gong",
     category: "Bulldozer",
-    image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80",
+    image: "/images/liugong/liugong-b160c.jpg",
     description:
-      "Bulldozer kelas menengah yang tangguh untuk penataan lahan dan konstruksi infrastruktur.",
+      "Robust medium-class bulldozer for land clearing and infrastructure construction.",
     specs: [
       { label: "Brand", value: "Liu Gong" },
       { label: "Operating Weight", value: "17,000 kg" },
@@ -1003,10 +970,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Zoomlion QUY150",
     brandId: "zoomlion",
     category: "Crawler Crane",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+    image: "/images/zoomlion/zoomlion-quy150.webp",
     description:
-      "Crane berkapasitas besar untuk proyek infrastruktur strategis dengan tingkat keamanan tinggi.",
+      "Large-capacity crane for strategic infrastructure projects with high safety standards.",
     specs: [
       { label: "Brand", value: "Zoomlion" },
       { label: "Max Capacity", value: "150 Tons" },
@@ -1018,10 +984,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Zoomlion ZTC250",
     brandId: "zoomlion",
     category: "Truck Crane",
-    image:
-      "https://images.unsplash.com/photo-1535930749574-1399327ce78f?w=1600&q=80",
+    image: "/images/zoomlion/zoomlion-ztc250.webp",
     description:
-      "Truck crane lincah untuk pekerjaan konstruksi perkotaan dan pengangkatan cepat.",
+      "Agile truck crane for urban construction work and rapid lifting.",
     specs: [
       { label: "Brand", value: "Zoomlion" },
       { label: "Max Capacity", value: "25 Tons" },
@@ -1033,10 +998,9 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Zoomlion ZAT1500",
     brandId: "zoomlion",
     category: "All Terrain Crane",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+    image: "/images/zoomlion/zoomlion-zat1500.webp",
     description:
-      "All-terrain crane berperforma tinggi dengan 7-section boom untuk jangkauan vertikal ekstrem dan mobilitas tinggi.",
+      "High-performance all-terrain crane with 7-section boom for extreme vertical reach and high mobility.",
     specs: [
       { label: "Brand", value: "Zoomlion" },
       { label: "Max Capacity", value: "150 Tons" },
@@ -1049,89 +1013,14 @@ export const HEAVY_EQUIPMENT_FLEET: FleetItem[] = [
     name: "Zoomlion QUY260",
     brandId: "zoomlion",
     category: "Crawler Crane",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=1600&q=80",
+    image: "/images/zoomlion/zoomlion-quy260.png",
     description:
-      "Heavy duty crawler crane yang dirancang khusus untuk instalasi energi angin dan struktur baja berat pada proyek skala besar.",
+      "Heavy-duty crawler crane specifically designed for wind energy installation and heavy steel structures on large-scale projects.",
     specs: [
       { label: "Brand", value: "Zoomlion" },
       { label: "Max Capacity", value: "260 Tons" },
       { label: "Main Boom", value: "95 Meters" },
       { label: "Engine", value: "Cummins QSL9" },
-    ],
-  },
-  {
-    id: "crane-sany-250t",
-    name: "Sany SCC2500A",
-    category: "Crawler Crane",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
-    description:
-      "Versatile crawler crane with excellent lifting capacity and stability for large-scale infrastructure projects.",
-    specs: [
-      { label: "Max Capacity", value: "250 Tons" },
-      { label: "Main Boom", value: "18m - 86m" },
-      { label: "Fixed Jib", value: "13m - 42m" },
-      { label: "Engine Output", value: "242 kW" },
-    ],
-  },
-  {
-    id: "excavator-komatsu-pc200",
-    name: "Komatsu PC200-8",
-    category: "Excavator",
-    image:
-      "https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80",
-    description:
-      "The industry standard for reliability and efficiency in earthmoving and construction site preparation.",
-    specs: [
-      { label: "Bucket Capacity", value: "0.8 - 1.2 m³" },
-      { label: "Operating Weight", value: "20,000 kg" },
-      { label: "Max Digging Depth", value: "6,600 mm" },
-      { label: "Travel Speed", value: "5.5 km/h" },
-    ],
-  },
-  {
-    id: "crane-tadano-50t",
-    name: "Tadano GR-500EX",
-    category: "Rough Terrain Crane",
-    image:
-      "https://images.unsplash.com/photo-1535930749574-1399327ce78f?w=1600&q=80",
-    description:
-      "Compact and powerful rough terrain crane designed for high mobility and efficiency in tight construction sites.",
-    specs: [
-      { label: "Max Capacity", value: "50 Tons" },
-      { label: "Max Boom", value: "34.7 m" },
-      { label: "Max Radius", value: "31.0 m" },
-      { label: "Drive", value: "4 x 4 x 4" },
-    ],
-  },
-  {
-    id: "bulldozer-cat-d6r",
-    name: "Caterpillar D6R",
-    category: "Bulldozer",
-    image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80",
-    description:
-      "Robust track-type tractor built for heavy-duty earthmoving, land clearing, and site preparation.",
-    specs: [
-      { label: "Engine Power", value: "189 HP" },
-      { label: "Operating Weight", value: "18,800 kg" },
-      { label: "Blade Capacity", value: "3.8 - 5.6 m³" },
-      { label: "Track Width", value: "610 mm" },
-    ],
-  },
-  {
-    id: "compactor-bomag-bw211",
-    name: "Bomag BW 211 D-40",
-    category: "Single Drum Roller",
-    image: "/images/heavyduty/bomac.jpg",
-    description:
-      "High-performance soil compactor for medium to large-scale infrastructure projects.",
-    specs: [
-      { label: "Operating Weight", value: "10,000 kg" },
-      { label: "Working Width", value: "2,130 mm" },
-      { label: "Static Linear Load", value: "28.2 kg/cm" },
-      { label: "Engine Power", value: "74 kW" },
     ],
   },
 ];
@@ -1142,9 +1031,8 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Industrial Forklift Solutions",
     slug: "forklift-solutions",
     description:
-      "Rangkaian lengkap forklift diesel dan elektrik kelas dunia untuk efisiensi logistik tinggi di berbagai sektor industri.",
-    image:
-      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+      "Complete range of world-class diesel and electric forklifts for high logistics efficiency in various industrial sectors.",
+    image: "/images/heli/Electric_Reach_Truck_1.6-2_Tonne_CQD16-20.jpg",
     features: [
       "Certified Operators (SIO)",
       "Preventive Maintenance 24/7",
@@ -1157,9 +1045,8 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Heavy Lifting & Crane Services",
     slug: "heavy-lifting-crane",
     description:
-      "Solusi pengangkatan beban berat menggunakan crawler dan truck crane dengan kapasitas hingga 500 ton untuk proyek konstruksi dan infrastruktur.",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80",
+      "Heavy lifting solutions using crawler and truck cranes with capacities up to 500 tons for construction and infrastructure projects.",
+    image: "/images/zoomlion/zoomlion-ztc250.webp",
     features: [
       "Advanced Rigging Plans",
       "High Safety Standards (K3)",
@@ -1172,9 +1059,8 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Earthmoving Machinery",
     slug: "earthmoving-machinery",
     description:
-      "Excavator dan bulldozer tangguh untuk pekerjaan persiapan lahan, penggalian, dan pemindahan tanah dalam skala besar.",
-    image:
-      "https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80",
+      "Robust excavators and bulldozers for large-scale land preparation, excavation, and earthmoving work.",
+    image: "/images/liugong/LiuGong922E.webp",
     features: [
       "Fuel-Efficient Engines",
       "Heavy Duty Buckets",
@@ -1187,9 +1073,8 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Li-Ion Warehouse Automation",
     slug: "warehouse-automation",
     description:
-      "Unit warehouse elektrik dengan teknologi Lithium-Ion terbaru dari EP Equipment untuk operasional gudang yang bersih dan efisien.",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80",
+      "Latest electric warehouse units with Lithium-Ion technology from EP Equipment for clean and efficient warehouse operations.",
+    image: "/images/ep-equipment/EPF4.webp",
     features: [
       "Fast Opportunity Charging",
       "Maintenance-Free Battery",
@@ -1202,9 +1087,8 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Port & Container Handling",
     slug: "port-container-handling",
     description:
-      "Peralatan khusus untuk manajemen terminal peti kemas, termasuk reach stacker dan heavy forklift untuk arus logistik pelabuhan yang lancar.",
-    image:
-      "https://images.unsplash.com/photo-1512418490979-92798ccc1380?w=1600&q=80",
+      "Specialized equipment for container terminal management, including reach stackers and heavy forklifts for smooth port logistics flow.",
+    image: "/images/plummewah/pd-5000tag.png",
     features: [
       "High Load Stability",
       "Intelligent Control Systems",
@@ -1217,7 +1101,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Road & Infrastructure Fleet",
     slug: "road-construction-fleet",
     description:
-      "Lini compactor, rollers, dan grader berkualitas untuk memastikan pemadatan dan perataan jalan yang presisi sesuai standar teknik.",
+      "Quality line of compactors, rollers, and graders to ensure precise road compaction and leveling according to engineering standards.",
     image: "/images/heavyduty/bomac.jpg",
     features: [
       "High Compaction Force",
@@ -1231,7 +1115,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     name: "Mining & Quarry Solutions",
     slug: "mining-quarry-solutions",
     description:
-      "Alat berat khusus pertambangan dari Liu Gong dan Zoomlion yang dirancang untuk durabilitas ekstrem di medan terbuka.",
+      "Specialized heavy equipment for mining from Liu Gong and Zoomlion designed for extreme durability in open-pit terrain.",
     image: "/images/liugong/8128h.jpg",
     features: [
       "Reinforced Chassis",

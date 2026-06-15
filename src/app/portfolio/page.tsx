@@ -25,7 +25,7 @@ export default function PortfolioPage() {
       {/* Hero Section */}
       <div className="relative h-[60vh] min-h-[500px] flex items-center px-6 md:px-12 overflow-hidden bg-gray-900">
         <Image
-          src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=1400&q=80" // Gambar umum untuk proyek engineering
+          src="/images/zoomlion/zoomlion-ztc250.webp" // Gambar umum untuk proyek engineering
           alt="Engineering Project Portfolio"
           fill
           className="object-cover opacity-40"

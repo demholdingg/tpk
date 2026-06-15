@@ -29,8 +29,8 @@ export default function Error({
       </h2>
 
       <p className="text-gray-600 text-sm leading-relaxed max-w-[420px] mb-10">
-        Mohon maaf, kami mengalami kendala saat memuat halaman ini. Silakan
-        periksa koneksi internet Anda atau coba muat ulang halaman.
+        We apologize, we encountered a problem while loading this page. Please
+        check your internet connection or try refreshing the page.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
@@ -39,7 +39,7 @@ export default function Error({
           className="inline-flex items-center gap-2 bg-orange text-black font-semibold
                      text-[14px] px-8 py-3.5 rounded transition-all hover:bg-orange-dark shadow-lg shadow-orange/10"
         >
-          <RefreshCcw size={16} /> Coba Lagi
+          <RefreshCcw size={16} /> Try Again
         </button>
 
         <a
@@ -47,7 +47,7 @@ export default function Error({
           className="inline-flex items-center justify-center text-gray-500 font-medium
                      text-[14px] px-8 py-3.5 rounded border border-gray-200 hover:bg-gray-50 transition-all"
         >
-          Kembali ke Beranda
+          Back to Home
         </a>
       </div>
     </div>

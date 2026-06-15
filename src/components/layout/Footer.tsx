@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Linkedin, Instagram, Youtube } from "lucide-react";
 import { FOOTER_SERVICES, FOOTER_COMPANY } from "@/data";
@@ -23,13 +24,24 @@ export function Footer() {
       >
         {/* Brand */}
         <div>
-          <div className="font-display text-xl font-bold text-gray-900 mb-3">
-            Teknika <span className="text-orange">Pesona</span> Kahayan
+          <div className="flex items-center gap-3 mb-4">
+            <div className="relative w-10 h-10">
+              <Image
+                src="/images/logoteknika.png"
+                alt="Teknika Pesona Kahayan Logo"
+                fill
+                sizes="40px"
+                className="object-contain"
+              />
+            </div>
+            <div className="font-display text-xl font-bold text-gray-900">
+              Teknika <span className="text-orange">Pesona</span> Kahayan
+            </div>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed mb-6 max-w-[280px]">
-            Penyedia solusi alat berat dan material handling terintegrasi,
-            melayani persewaan dan pemeliharaan armada untuk berbagai sektor
-            industri di Indonesia.
+            Integrated heavy equipment and material handling solutions provider,
+            serving fleet rental and maintenance for various industrial sectors
+            in Indonesia.
           </p>
           <div className="flex gap-3">
             {[
@@ -108,11 +120,11 @@ export function Footer() {
             <span className="block text-gray-900 text-[11px] font-semibold tracking-wide uppercase mb-2">
               Head Office
             </span>
-            Gedung 18 Office Park Lt. 25 Unit A2, Jl. Tb. Simatupang No.18
-            Kebagusan, Pasar Minggu, Jakarta Selatan, DKI Jakarta
+            Jl. Sultan Agung pondok ungu No.Raya, RT.001/RW.006, Medan Satria,
+            Bekasi, West Java 17132
           </p>
           <a
-            href="https://maps.google.com"
+            href="https://www.google.com/maps/search/?api=1&query=Jl.+Sultan+Agung+Medan+Satria+Bekasi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-orange font-medium hover:opacity-75 transition-opacity"

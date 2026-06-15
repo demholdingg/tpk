@@ -33,9 +33,10 @@ export default function ProductsPage() {
           className="absolute inset-x-0 -top-[350px] -bottom-[350px]" // Beri ruang lebih untuk parallax
         >
           <Image
-            src="https://images.unsplash.com/photo-1532186770457-a58647714177?w=1400&q=80"
-            alt="Renewable Energy Products"
+            src="/images/plummewah/pm-1500.png"
+            alt="Industrial Machinery Solutions"
             fill
+            sizes="100vw"
             className="object-cover opacity-25 brightness-75" // Opacity lebih rendah, brightness lebih gelap
             priority
           />
@@ -54,7 +55,7 @@ export default function ProductsPage() {
         />
         <div className="relative z-10 w-full max-w-5xl">
           <p className="text-orange text-[11px] font-bold tracking-[4px] uppercase mb-4">
-            Renewable Solutions
+            Industrial Solutions
           </p>
           <motion.h1
             variants={typingContainer}
@@ -62,32 +63,59 @@ export default function ProductsPage() {
             animate="visible"
             className="font-display text-4xl md:text-7xl font-bold text-gray-900 uppercase leading-tight mb-6"
           >
-            {"Our ".split("").map((char, i) => (
+            {"Premier ".split("").map((char, i) => (
               <motion.span key={i} variants={typingLetter}>
                 {char}
               </motion.span>
             ))}
             <span className="text-orange">
-              {"Technology".split("").map((char, i) => (
+              {"Equipment".split("").map((char, i) => (
                 <motion.span key={i} variants={typingLetter}>
                   {char}
                 </motion.span>
               ))}
             </span>
-            {" & Products".split("").map((char, i) => (
+            {" & Systems".split("").map((char, i) => (
               <motion.span key={i} variants={typingLetter}>
                 {char}
               </motion.span>
             ))}
           </motion.h1>
           <p className="text-gray-600 text-lg md:text-xl max-w-3xl leading-relaxed">
-            We provide various integrated renewable energy systems, from
-            residential to utility scale, using the latest technology for a
-            greener future.
+            We provide a comprehensive range of heavy machinery and material
+            handling systems, engineered for precision and durability across
+            Indonesia's most demanding industrial sectors.
           </p>
         </div>
       </section>
 
+      {/* JSON-LD for Product Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            PRODUCTS_DATA.map((product) => ({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: product.name,
+              description: product.description,
+              image: `https://www.pesonakahayan.co.id${product.image}`, // Ensure absolute URL
+              url: `https://www.pesonakahayan.co.id/products/${product.slug}`,
+              brand: {
+                "@type": "Brand",
+                name: "Teknika Pesona Kahayan", // Or the specific brand of the product if available in data
+              },
+              // Add offers, aggregateRating, review if available
+              // "offers": {
+              //   "@type": "Offer",
+              //   "priceCurrency": "IDR",
+              //   "price": "Call for Price", // Or actual price if available
+              //   "availability": "https://schema.org/InStock"
+              // }
+            })),
+          ),
+        }}
+      />
       {/* Products Grid */}
       <section className="px-6 md:px-12 py-24 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -106,6 +134,7 @@ export default function ProductsPage() {
                   src={product.image}
                   alt={product.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />

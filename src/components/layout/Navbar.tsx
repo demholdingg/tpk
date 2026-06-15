@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -52,9 +53,21 @@ export function Navbar() {
       {/* Logo */}
       <Link
         href="/"
-        className="font-display text-lg md:text-xl font-bold text-gray-900 tracking-wide mr-auto transition-all"
+        className="flex items-center gap-2.5 mr-auto group transition-all"
       >
-        Teknika <span className="text-orange">Pesona</span> Kahayan
+        <div className="relative w-8 h-8 md:w-9 md:h-9">
+          <Image
+            src="/images/logoteknika.png"
+            alt="Teknika Pesona Kahayan Logo"
+            fill
+            sizes="(max-width: 768px) 32px, 36px"
+            priority
+            className="object-contain"
+          />
+        </div>
+        <div className="font-display text-lg md:text-xl font-bold text-gray-900 tracking-wide">
+          Teknika <span className="text-orange">Pesona</span> Kahayan
+        </div>
       </Link>
 
       {/* Desktop nav */}
