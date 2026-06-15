@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 export function WhatsAppButton() {
-  const whatsappNumber = "6281234567890"; // Ganti dengan nomor resmi perusahaan
+  const whatsappNumber = "6287776248028";
   const message =
     "Hello Teknika Pesona Kahayan, I am interested in your services.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

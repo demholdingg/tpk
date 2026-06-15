@@ -48,14 +48,18 @@ export function Footer() {
               {
                 icon: Linkedin,
                 label: "LinkedIn",
-                href: "https://linkedin.com",
+                href: "https://id.linkedin.com/company/pt-teknika-pesona-kahayan",
               },
               {
                 icon: Instagram,
                 label: "Instagram",
-                href: "https://instagram.com",
+                href: "https://instagram.com/teknika.pesona.kahayan",
               },
-              { icon: Youtube, label: "YouTube", href: "https://youtube.com" },
+              {
+                icon: Youtube,
+                label: "YouTube",
+                href: "https://www.youtube.com/channel/UC5VjwnX-rvSBQ41wLjQTZFg",
+              },
             ].map(({ icon: Icon, label, href }) => (
               <a
                 key={label}
